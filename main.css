@@ -1,0 +1,732 @@
+/* main setting */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+    font-size: 20px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 600;
+}
+
+a {
+    display: block;
+
+        /* Internet Explorer 10 */
+        display:-ms-flexbox;
+        -ms-flex-pack:center;
+        -ms-flex-align:center;
+    
+        /* Firefox */
+        display:-moz-box;
+        -moz-box-pack:center;
+        -moz-box-align:center;
+    
+        /* Safari, Opera, and Chrome */
+        display:-webkit-box;
+        -webkit-box-pack:center;
+        -webkit-box-align:center;
+    
+        /* W3C */
+        display:box;
+        box-pack:center;
+        box-align:center;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.2;
+}
+
+html { /* body won't work ¯\_(ツ)_/¯ */
+-ms-scroll-snap-type: y proximity;
+    scroll-snap-type: y proximity;
+    /* overflow-y: auto; */
+}
+    /* Although I'm told that html doesn't work in Safari 
+       and body does, so maybe use both? */
+
+body {
+-ms-scroll-snap-type: y proximity;
+    scroll-snap-type: y proximity;
+    /* overflow-y: auto; */
+}
+
+section {
+    height: calc((95vh - 2px));
+    max-height: calc((100vh - 40px));
+
+    scroll-snap-align: end;
+}
+
+    /* stolen from css-trick */
+
+.container {
+    margin: 0 auto;
+    min-width: 900px;
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.footer {
+    padding: 0px 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+    
+}
+
+/* following are specialized */
+/* home page */
+.home-container {
+    height: calc((95vh - 2px));
+    max-height: calc((100vh - 40px));
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+#home-name {
+    position: relative;
+    width: 100%;
+    margin-top: 10vh;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 10vh;
+    line-height: 10vh;
+    text-align: left;
+
+    color:rgba(255, 255, 255, 1);
+    text-shadow: 0px 6px 4px rgba(78, 82, 90, 0.80);
+
+    animation-name: home-name-showup;
+    animation-duration: 1.5s;
+} @keyframes home-name-showup {
+    0%   {opacity: 0%;}
+    100% {opacity: 100%;}
+}
+
+#home-intro {
+    position: relative;
+    width: 100%;
+    padding: 50px 10% 0 10%;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    font-size: min(calc(3vh), 30px);
+    line-height: min(calc(4vh), 40px);
+
+    color:rgba(255, 255, 255, 1);
+    text-shadow: 0px 6px 4px rgba(78, 82, 90, 0.80);
+
+    animation-name: home-intro-showup;
+    animation-duration: 2s;
+} @keyframes home-intro-showup {
+    0%   {opacity: 0%;}
+    50%  {opacity: 0%;}
+    100% {opacity: 100%;}
+}
+
+#pageusing {
+    position: relative;
+    top: 40%;
+    width: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.5vw;
+    line-height: 60px;
+    text-align: center;
+
+    color: #FFFFFF;
+    background: #A4A3A3;
+    border-radius: 20px;
+}
+
+.home-menu {
+    padding-left: 0em !important;
+}
+
+.home-menu #habitat {
+    position: relative;
+    animation-name: example1;
+    animation-duration: 1s;
+}
+@keyframes example1 {
+    0%   {left:0px; top:100%;}
+    100% {left:0px; top:0px;}
+}
+.home-menu #upload {
+    position: relative;
+    animation-name: example2;
+    animation-duration: 1.5s;
+}
+@keyframes example2 {
+    0%   {left:0px; top:100%;}
+    33%  {left:0px; top:100%;}
+    100% {left:0px; top:0px;}
+}
+.home-menu #challenge {
+    position: relative;
+    animation-name: example3;
+    animation-duration: 2s;
+}
+@keyframes example3 {
+    0%   {left:0px; top:100%;}
+    50%  {left:0px; top:100%;}
+    100% {left:0px; top:0px;}
+}
+
+.home-menu-box {
+    border: 1px solid rgba(0, 0, 0, 0);
+    background: rgba(231, 231, 231, 0.4);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    height: 100%;
+
+    cursor: pointer;
+}
+
+.home-menu-box + #upload {
+    background: rgba(78, 82, 90, 0.4);
+}
+
+.home-menu-box a {
+    height: 100%;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 3vw !important;
+
+    color: rgba(78, 82, 90, 1);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+.home-menu-box + #upload a {
+    color: rgba(255, 255, 255, 1);
+}
+
+.home-menu-box a:hover,
+.home-menu-box + #upload a:hover {
+    color:  rgba(193, 133, 31, 1);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+}
+
+
+
+/* habitat_intro */
+.slide-container {
+    height: calc(95vh - 2px);
+    max-height: calc(100vh - 50px);
+    margin-right: 10vw;
+    margin-left: 10vw;
+}
+
+.slide-container button {
+    height: 100%;
+    width: 10%;
+}
+
+#carousel-habitat {
+    margin: auto auto auto auto;
+    max-width: calc(95vh*2);
+}
+
+.slide-content-bg {
+    background: rgba(0, 0, 0, 0.45);
+    padding: 5px;
+    border-radius: 5px;
+    width: auto;
+}
+
+/* challenge page */
+.challenge-nest {
+    width: 100%;
+    height: 95vh;
+    max-height: calc(100vh - 40px);
+    background-image: url(./image/nests-bird.png);
+
+    background-position: center;
+    background-size: 100%;
+    /* this made img can cover all elts. without exception */
+    background-repeat: no-repeat;
+
+    scroll-behavior: smooth;
+}
+
+.challenge-nest #nest-habitat {
+    position: relative;
+    top: calc(14vh - 1.8*(10vw - 18vh));
+    left: -4vw;
+    
+    width: 40%;
+    margin-left: 30%;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 3.5vw;
+    line-height: 4vw;
+    text-align: center;
+    text-decoration: none;
+
+    color: rgb(233, 227, 195);
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transform: rotate(-14deg);
+}
+
+.challenge-nest #nest-model {
+    position: relative;
+    top: calc(45vh);
+    left: 20vw;
+
+    width: 40%;
+    margin-left: 30%;
+    
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 3.5vw;
+    line-height: 4vw;
+    text-align: center;
+    text-decoration: none;
+
+    color: rgb(233, 227, 195);
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transform: rotate(2deg);
+}
+
+/* map */
+
+.map-container {
+    min-width: 1080px;
+    width: 100vw;
+    height: calc(95vh - 2px);
+    max-height: calc(100vh - 40px);
+}
+
+/* model_index, from .home-menu */
+#model-name {
+    position: relative;
+    width: 100%;
+
+    font-family: Russo One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 80px;
+    line-height: 96px;
+    text-align: center;
+    
+    color: rgb(65, 63, 14);
+    text-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+}
+
+#white-bird {
+    background-image: url(./image/white-bird-shape.png);
+    background-position: center;
+    background-size: 20%;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+.model-index-box {
+    height: 100%;
+    cursor: pointer;
+}
+
+.model-index-box a {
+    height: 100%;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 37px;
+    /* identical to box height */
+    
+    text-align: center;
+    text-decoration: none;
+    color: rgba(78, 82, 90, 0.8);
+}
+
+.model-index-box a:hover {
+    color: rgb(193, 133, 31);
+}
+
+.model-index-box a svg {
+    width: 10em;
+    top: 0;
+    margin-bottom: 10%;
+}
+
+/* display method */
+* {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.d-none {
+    display: none;
+}
+
+.d-flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.jcsb {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+}
+
+.jcse {
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+}
+
+
+/* color control*/
+/* bg-xxxxx has been use in bootstrap */
+.bgc-primary {
+    background-color: rgb(236,220,194);
+}
+
+.bgc-secondary {
+    background-color: rgba(0, 201, 173, 0.1);;
+}
+
+.color-primary {
+    color: #4E525A;
+}
+
+.color-secondary {
+    color: #27292D;
+}
+
+.color-light {
+    color: #fff;
+}
+
+.color-muted {
+    color: #93827E;
+}
+
+/* main elt. */
+
+.article {
+    font-family: 'Noto Sans TC', sans-serif;
+    height: calc(95vh - 2px);
+    max-height: calc(100vh - 40px);
+}
+
+.v-mid {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.h-mid {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.txt-center {
+    /* Internet Explorer 10 */
+    display:-ms-flexbox;
+    -ms-flex-pack:center;
+    -ms-flex-align:center;
+
+    /* Firefox */
+    display:-moz-box;
+    -moz-box-pack:center;
+    -moz-box-align:center;
+
+    /* Safari, Opera, and Chrome */
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+
+    /* W3C */
+    display:box;
+    box-pack:center;
+    box-align:center;
+}
+
+.mt-60 {
+    margin-top: 60px;
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+.mb-60 {
+    margin-bottom: 60px;
+}
+
+/* article */
+
+/* h1 {
+    font-style: normal;
+    font-size: 4vw !important;
+    line-height: 120px;
+    text-align: center;
+    position: relative;
+
+    background-color: transparent;
+}
+
+h2 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2vw !important;
+    line-height: 45px;
+    text-align: center;
+    position: relative;
+
+    background-color: transparent;
+}
+
+p {
+    font-style: normal;
+    font-size: 2vw !important;
+    line-height: 1.2;
+    position: relative;
+
+    background-color: transparent;
+} */
+
+
+/* Contact*/
+
+#contact_list {
+    font-family: Russo One;
+    color: #27292D;
+}
+
+#Insitution {
+    padding: 20px;
+    margin: 40px
+}
+#Insitution h1::before{
+    background-image: url('./image/white-bird-shape.png');
+    background-size: 100px 100px;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    content: "";
+    transform: translate(-200px,15px);
+    z-index: -500;
+    position: absolute;
+
+    
+}
+
+/* model page */
+
+#model_intro {
+    font-family: Roboto;
+    color: #27292D;
+}
+
+#model_intro h1 {
+    font-family: Russo One;
+}
+
+/* function */
+
+#step::after{
+    content: "→";
+    transform: translate(120px,0px);
+    z-index: -500;
+    position: absolute;
+}
+
+
+
+
+#counting {
+    color: #4E525A;
+    font-family: Russo One;
+    font-size: 36px;
+    text-align: center;
+    display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+
+
+#loading-bird{
+display:flex;
+  align-items:center;
+  justify-content:center;
+  width:600px;
+  height:600px;
+  background-image:url('./image/white-bird-shape.png');
+background-size: 300px 300px;
+background-repeat: no-repeat;
+background-position:46.5% 58%;
+}
+
+#result_title{
+    color: #4E525A;
+    font-family: Russo One;
+    font-size: 36px;
+    text-align: center;
+    display:flex;
+  align-items:center;
+  justify-content:center;
+  height:60px;
+  width: 450px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  background-color: rgb(236,220,194);
+
+}
+
+#counting_result{
+    color: #4E525A;
+    font-family: Russo One;
+    font-size: 36px;
+    text-align: center;
+    display:flex;
+  align-items:center;
+  justify-content:center;
+  top:180px;
+
+}
+
