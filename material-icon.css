@@ -48,7 +48,7 @@
 .material-icons.scroll-down {
     position: relative;
 
-    margin-top: 10vh;
+    bottom: 10vh;
     width: 100%;
     font-size: 10vh;
     text-align: center;

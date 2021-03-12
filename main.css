@@ -151,9 +151,6 @@ h6 {
 html { /* body won't work ¯\_(ツ)_/¯ */
 -ms-scroll-snap-type: y proximity;
     scroll-snap-type: y proximity;
-
-    overflow-x: hidden;
-    overflow-y: auto;
 }
     /* Although I'm told that html doesn't work in Safari 
        and body does, so maybe use both? */
@@ -161,6 +158,8 @@ html { /* body won't work ¯\_(ツ)_/¯ */
 body {
 -ms-scroll-snap-type: y proximity;
     scroll-snap-type: y proximity;
+
+    overflow-x: hidden ;
 }
 
 section {
@@ -193,13 +192,15 @@ section {
 /* following are specialized */
 /* home page */
 .home-container {
-    overflow-x: hidden;
-    overflow-y: hidden;
+    height: calc((95vh - 2px));
+    max-height: calc((100vh - 40px));
+    
 }
 
 .motiva-container {
     margin: 0 5% 0 5%;
     vertical-align: middle;
+    overflow: hidden;
 }
 
 .v-center {
@@ -211,7 +212,7 @@ section {
 #home-name-1 {
     position: relative;
     width: 100%;
-    margin-top: 30vh;
+    margin-top: 20vh;
 
     font-family: Roboto;
     font-style: normal;
@@ -233,13 +234,12 @@ section {
 #home-name-2 {
     position: relative;
     width: 100%;
-    margin-top: 10vh;
 
     font-family: Roboto;
     font-style: normal;
     font-weight: 900;
-    font-size: 8vh;
-    line-height: 8vh;
+    font-size: min(8vh, 80px);
+    line-height: min(8vh, 80px);
     text-align: left;
     
     color:rgba(255, 255, 255, 1);
@@ -537,6 +537,9 @@ section {
 }
 
 .txt-center {
+    /* make single childelt. at the center of parent*/
+    /* if has multi elt to set, use a div to package them */
+
     /* Internet Explorer 10 */
     display:-ms-flexbox;
     -ms-flex-pack:center;
