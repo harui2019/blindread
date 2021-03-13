@@ -18,7 +18,7 @@
     <!-- javascript -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" 
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    
+
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" 
     rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
@@ -27,8 +27,8 @@
     
 </head>
 
-<body class="bgc-secondary color-light">
-    <nav class="bgc-primary">
+<body class="bgc-primary color-light">
+    <nav class="bgc-cover-primary color-light">
         <div class="container">
             <ul class="menu d-flex">
                 <!-- 首頁 -->
@@ -39,43 +39,34 @@
                         </span>
                     </a>
                     <ul class="drop-menu bgc-secondary">
-                        <!-- 挑戰說明 -->
+                        <!-- 面臨問題 -->
                         <li class="drop">
-                            <a href="./challenge_intro.html">CHALLENGE</a>
+                            <a href="./home_issue.html">ISSUE</a>
                         </li>
-                        <!-- 棲地介紹 -->
+                        <!-- 未來展望 -->
                         <li class="drop">
-                            <a href="./habitat_intro.html">HABITAT</a>
+                            <a href="./home_future.html">FUTURE</a>
                         </li>
                     </ul>
                 </li>
                 <!-- 模型介紹 -->
                 <li class="drop">
-                    <a href="./model_index.html">MODEL
-                        <span class="material-icons md-18 active">
+                    <a href="./model.html">MODEL
+                        <span class="active material-icons md-18">
                             keyboard_arrow_down
                         </span>
                     </a>
                     <ul class="drop-menu bgc-secondary">
                         <li class="drop">
-                            <a class="active" href="./model.html">MODEL</a>
+                            <a class="active" href="./model_intro.html">INTRO</a>
                         </li>
                         <li class="drop">
-                            <a href="./function.html">FUNCTION</a>
+                            <a href="./model_function.html">FUNCTION</a>
                         </li>
                         <li class="drop">
-                            <a href="./method.html">METHODOLOGY</a>
+                            <a href="./model_method.html">METHODOLOGY</a>
                         </li>
-                        <!-- <li><a href="https://vgg16.herokuapp.com/">前往上傳</a></li> -->
                     </ul>
-                </li>
-                <!-- 上傳圖片 -->
-                <li class="drop">
-                    <a href="./upload.html">UPLOAD</a>
-                </li>
-                <!-- 地圖 -->
-                <li class="drop">
-                    <a href="./map.html">MAP</a>
                 </li>
                 <!-- 聯繫我們 -->
                 <li class="drop">
@@ -85,27 +76,23 @@
             </ul>
         </div>
     </nav>
-    <nav class="navblocker showboxshape_3 bgc-primary">It's navblocker at z-index:0</nav>
-    
-    <div class="container color-primary " id="model_intro">
-        <div class="row article">
-            <div class="col-12 start-100 mt-5">
-                
-                    <h1 class="mt-60 fw-bold" id="topic">HRCenterNet</h1>
-                    <h3 class="mb-30 fw-bold" id="">Multi-Scale Feature Representations</h2>
-                    <img src="../image/model.png">
-                    <p class="mt-30 fw-bolder" id="">
-                        We propose a generalized bird detection model, namely HRCenterNet with high accuracy
-                        inspired by HRNet and CenterNet. For feature extraction, the parallelized model is
-                        implemented so that the global feature and local feature can be
-                        considered together, and high-level and low-level representations can
-                        interact with each other under multi-scale fusion. In the final
-                        segmentation result, unlike anchor-based models in the past, our model
-                        can achieve scale-aware and accurate segmentation. 
-                    </p>
-                
-            </div>
-        </div>
+    <nav class="navblocker bgc-primary">It's navblocker at z-index:0</nav>
+
+    <div class="air" >
+        <div class="air4"></div>
+        <div class="air4 bgc-cover-primary"></div>
+        <div class="air4"></div>
+        <div class="air4 bgc-cover-primary"></div>
+
+
+    </div>
+
+    <div class="fixme" id="scroll-test-1">
+        <img class="" src="../image/model-intro-1.png" alt="">
+    </div>
+
+
+    <div class="air bgc-secondary">
     </div>
 
     <div class="footer bg-secondary color-muted">
@@ -113,6 +100,34 @@
             <div class="footer-copyright">@copyright-NCCU DSC Group of Web</div>
         </div>
     </div>
+
+    
+    <script>
+
+        var fixmeTop = $('.fixme').offset().top;       // get initial position of the element
+        
+        $(window).scroll(function() {                  // assign scroll event listener
+        
+            var currentScroll = $(window).scrollTop(); // get current position
+            
+            // console.log(fixmeTop, currentScroll);
+
+            if (currentScroll >= fixmeTop) {           // apply position: fixed if you
+                $('.fixme').css({                      // scroll to that element or below it
+                    position: 'fixed',
+                    top: '0',
+                    left: '0'
+                });
+            } else {                                   // apply position: static
+                $('.fixme').css({                      // if you scroll above it
+                    position: 'static'
+                });
+            }
+        
+        });
+        
+        
+            </script>
 
 </body>
 

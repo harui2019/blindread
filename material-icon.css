@@ -35,7 +35,7 @@
     /* Support for IE. */
     font-feature-settings: 'liga';
 
-    color: rgba(78, 82, 90, 0.85);
+    color: rgba(255, 255, 255, 0.85);
     
     height: 24px;
 }
@@ -48,17 +48,19 @@
 .material-icons.scroll-down {
     position: relative;
 
-    bottom: 10vh;
+    top: 10vh;
+    color: transparent;
     width: 100%;
-    font-size: 10vh;
+    font-size: 15vh;
     text-align: center;
 
+    animation-delay: 1.5s;
     animation-name: example;
     animation-duration: 0.75s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-name: scroll-down-sign;
 } @keyframes scroll-down-sign {
-    0%   {color: rgba(78, 82, 90, 0.85); top: 0px;}
-    100% {color: rgba(193, 133, 31, 0.85); top: 5vh;}
+    0%   {color: rgba(78, 82, 90, 0.85); top: 10vh;}
+    100% {color: rgba(193, 133, 31, 0.85); top: 15vh;}
 }

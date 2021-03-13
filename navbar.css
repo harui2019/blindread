@@ -19,7 +19,6 @@ nav {
     z-index: 0;
 
     border-bottom: none;
-
     opacity: 0%;
 } 
 
@@ -38,7 +37,7 @@ nav .menu {
     /* line-height: 100%; */
     /* if using percentage, folowing the font height */
 
-    color: #93827E;
+    color: rgb(255, 255, 255);
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     position: absolute;
@@ -51,7 +50,7 @@ nav .menu li {
 }
 
 nav .menu a {
-    color: rgba(73, 71, 55, 0.6);
+    color: rgb(255, 255, 255);
     text-decoration: none;
     height: 100%;
 }
@@ -72,7 +71,7 @@ nav .drop-menu {
 
     border: 1px solid rgb(147, 130, 126);
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(0,0,0, 0.6);
     width: auto;
     padding: 2px 2px 2px 2px;
 
@@ -85,7 +84,7 @@ nav .drop-menu li {
     padding-right: 10px;
     padding-left: 10px;
     border-bottom: 2px solid rgb(255, 255, 255);
-    background-color: rgba(255, 255, 255, 0);
+
     margin-left: 0;
 
     height: 5vh;
@@ -103,6 +102,6 @@ nav .menu .drop:hover .drop-menu {
 /* nav art for each page */
 
 .nav-home {
-    background: rgba(233, 227, 195, 0.6);
+    /* background: rgba(233, 227, 195, 0.6); */
     border-bottom: none;
 }

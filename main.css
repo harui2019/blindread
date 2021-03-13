@@ -148,27 +148,29 @@ h6 {
     line-height: 1.2;
 }
 
-html { /* body won't work ¯\_(ツ)_/¯ */
+/* 這裡本來用來做些特效，但會和AOS這個套件衝突，所以放棄使用 */
+
+/* html { 
 -ms-scroll-snap-type: y proximity;
     scroll-snap-type: y proximity;
-}
+} */
+    /* body won't work ¯\_(ツ)_/¯ */
     /* Although I'm told that html doesn't work in Safari 
        and body does, so maybe use both? */
-
 body {
--ms-scroll-snap-type: y proximity;
-    scroll-snap-type: y proximity;
+/* -ms-scroll-snap-type: y proximity;
+    scroll-snap-type: y proximity; */
 
     overflow-x: hidden ;
 }
 
 section {
     /* height: min(calc((95vh - 2px)), calc((100vh - 40px))); */
-    height: calc((95vh - 2px));
+    height: calc((95vh));
     max-height: calc((100vh - 40px));
 
-    /* scroll-snap-align: end end; */
-    /* beauty but dangerous */
+    scroll-snap-align: end; /* beauty but dangerous */
+    scroll-snap-stop: always;
 }
     /* stolen from css-trick */
 
@@ -192,7 +194,7 @@ section {
 /* following are specialized */
 /* home page */
 .home-container {
-    height: calc((95vh - 2px));
+    height: calc((95vh));
     max-height: calc((100vh - 40px));
     
 }
@@ -221,7 +223,6 @@ section {
     line-height: 10vh;
     text-align: left;
     
-    color:rgba(255, 255, 255, 1);
     text-shadow: 0px 6px 4px rgba(78, 82, 90, 0.80);
 
     animation-name: home-name-showup;
@@ -238,11 +239,10 @@ section {
     font-family: Roboto;
     font-style: normal;
     font-weight: 900;
-    font-size: min(8vh, 80px);
-    line-height: min(8vh, 80px);
+    font-size: min(6vh, 60px);
+    line-height: min(6vh, 60px);
     text-align: left;
     
-    color:rgba(255, 255, 255, 1);
     text-shadow: 0px 6px 4px rgba(78, 82, 90, 0.80);
 }
 
@@ -257,7 +257,6 @@ section {
     font-size: min(calc(3vh), 30px);
     line-height: min(calc(4vh), 40px);
 
-    color:rgba(255, 255, 255, 1);
     text-shadow: 0px 6px 4px rgba(78, 82, 90, 0.80);
 
     animation-name: home-intro-showup;
@@ -280,62 +279,12 @@ section {
     font-size: min(calc(3vh), 30px);
     line-height: min(calc(4vh), 40px);
 
-    color:rgba(255, 255, 255, 1);
     text-shadow: 0px 6px 4px rgba(78, 82, 90, 0.80);
-}
-
-#pageusing {
-    position: relative;
-    top: 40%;
-    width: 40%;
-    left: 50%;
-    transform: translateX(-50%);
-
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.5vw;
-    line-height: 60px;
-    text-align: center;
-
-    color: #FFFFFF;
-    background: #A4A3A3;
-    border-radius: 20px;
 }
 
 .home-menu {
     padding-left: 0em !important;
 }
-
-/* .home-menu #habitat {
-    position: relative;
-    animation-name: example1;
-    animation-duration: 1s;
-}
-@keyframes example1 {
-    0%   {left:0px; top:100%;}
-    100% {left:0px; top:0px;}
-}
-.home-menu #upload {
-    position: relative;
-    animation-name: example2;
-    animation-duration: 1.5s;
-}
-@keyframes example2 {
-    0%   {left:0px; top:100%;}
-    33%  {left:0px; top:100%;}
-    100% {left:0px; top:0px;}
-}
-.home-menu #challenge {
-    position: relative;
-    animation-name: example3;
-    animation-duration: 2s;
-}
-@keyframes example3 {
-    0%   {left:0px; top:100%;}
-    50%  {left:0px; top:100%;}
-    100% {left:0px; top:0px;}
-} */
 
 .home-menu-box {
     border: 1px solid rgba(0, 0, 0, 0);
@@ -378,87 +327,67 @@ section {
 }
 
 
-
-/* habitat_intro */
+/* FUTURE */
 .slide-container {
-    height: calc(95vh - 2px);
-    max-height: calc(100vh - 50px);
+    height: calc((95vh));
+    max-height: calc((100vh - 40px));
     margin-right: 10vw;
     margin-left: 10vw;
+    overflow: hidden;
 }
 
 .slide-container button {
     height: 100%;
-    width: 10%;
+    width: 15%;
 }
 
 #carousel-habitat {
     margin: auto auto auto auto;
-    max-width: calc(95vh*2);
+    width: calc(95vh*1.5);
+    max-width: 90%;
+    z-index: 2;
 }
 
-.slide-content-bg {
+.slide-content {
     background: rgba(0, 0, 0, 0.45);
-    padding: 5px;
+    padding: 2px 20px 2px 20px;
     border-radius: 5px;
-    width: auto;
+
+    animation-duration: 1s;
+    animation-name: unblacken;
+} @keyframes unblacken {
+    0%   {background-color: rgba(0, 0, 0, 1);}
+    100% {background-color: rgba(0, 0, 0, 0.45);}
 }
+
+.slide-content:hover {
+    background: rgba(0, 0, 0);
+
+    animation-duration: 1s;
+    animation-name: blacken;
+} @keyframes blacken {  
+    0%   {background-color: rgba(0, 0, 0, 0.45);}
+    100% {background-color: rgba(0, 0, 0, 1);}
+}
+
+.slide-content h1 { font-size: min(20px, 2vw);}
+.slide-content p { font-size: min(16px, 1.6vw);}
 
 /* issue page */
-/* only use .motiva-container */
-
-/* model_index, from .home-menu */
-#model-name {
+/* 沿用大部分homepage設定 */
+#issue-content-1 {
     position: relative;
     width: 100%;
-
-    font-family: Russo One;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 80px;
-    line-height: 96px;
-    text-align: center;
-    
-    color: rgb(65, 63, 14);
-    text-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
-}
-
-#white-bird {
-    background-image: url(./image/white-bird-shape.png);
-    background-position: center;
-    background-size: 20%;
-    background-repeat: no-repeat;
-    height: 100%;
-}
-
-.model-index-box {
-    height: 100%;
-    cursor: pointer;
-}
-
-.model-index-box a {
-    height: 100%;
+    padding: 0 10% 0 10%;
+    vertical-align: middle;
 
     font-family: Roboto;
     font-style: normal;
-    font-weight: 600;
-    font-size: 32px;
-    line-height: 37px;
-    /* identical to box height */
-    
-    text-align: center;
-    text-decoration: none;
-    color: rgba(78, 82, 90, 0.8);
-}
+    font-weight: 400;
+    font-size: min(calc(2.5vh), 25px);
+    line-height: min(calc(3vh), 30px);
 
-.model-index-box a:hover {
-    color: rgb(193, 133, 31);
-}
-
-.model-index-box a svg {
-    width: 10em;
-    top: 0;
-    margin-bottom: 10%;
+    text-shadow: 0px 6px 4px rgba(78, 82, 90, 0.80);
 }
 
 /* display method */
@@ -492,36 +421,21 @@ section {
 
 /* color control*/
 /* bg-xxxxx has been use in bootstrap */
-.bgc-primary {
-    background-color: rgb(236,220,194);
-}
-
-.bgc-secondary {
-    background-color: rgba(0, 201, 173, 0.1);;
-}
-
-.color-primary {
-    color: #4E525A;
-}
-
-.color-secondary {
-    color: #27292D;
-}
-
-.color-light {
-    color: #fff;
-}
-
-.color-muted {
-    color: #93827E;
-}
+.bgc-primary { background-color: rgb(0, 0, 0);}
+.bgc-secondary { background-color: rgba(0, 201, 173, 0.1);}
+.bgc-cover-primary { background: rgba(255, 255, 255, 0.2)}
+.bgc-cover-secondary { background: rgba(255, 255, 255, 0)}
+.color-primary { color: #4E525A;}
+.color-secondary { color: #27292D;}
+.color-light { color: #fff;}
+.color-muted { color: #93827E;}
 
 /* main elt. */
 
 .article {
     font-family: 'Noto Sans TC', sans-serif;
-    height: calc(95vh - 2px);
-    max-height: calc(100vh - 40px);
+    height: calc((95vh));
+    max-height: calc((100vh - 40px));
 }
 
 .v-mid {
@@ -561,56 +475,14 @@ section {
     box-align:center;
 }
 
-.mt-60 {
-    margin-top: 60px;
-}
+.mt-60 { margin-top: 60px;}
+.mt-30 { margin-top: 30px;}
 
-.mt-30 {
-    margin-top: 30px;
-}
-
-.mb-30 {
-    margin-bottom: 30px;
-}
-
-.mb-60 {
-    margin-bottom: 60px;
-}
-
-/* article */
-
-/* h1 {
-    font-style: normal;
-    font-size: 4vw !important;
-    line-height: 120px;
-    text-align: center;
-    position: relative;
-
-    background-color: transparent;
-}
-
-h2 {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 2vw !important;
-    line-height: 45px;
-    text-align: center;
-    position: relative;
-
-    background-color: transparent;
-}
-
-p {
-    font-style: normal;
-    font-size: 2vw !important;
-    line-height: 1.2;
-    position: relative;
-
-    background-color: transparent;
-} */
+.mb-30 { margin-bottom: 30px;}
+.mb-60 { margin-bottom: 60px;}
 
 
-/* Contact*/
+/* Contact */
 
 #contact_list {
     font-family: Russo One;
@@ -639,7 +511,7 @@ p {
 
 #model_intro {
     font-family: Roboto;
-    color: #27292D;
+    
 }
 
 #model_intro h1 {
@@ -648,14 +520,17 @@ p {
 
 /* function */
 
-#step::after{
-    content: "→";
-    transform: translate(120px,0px);
+#step:after {
+    content: "arrow_forward_ios";
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    transform: translate(120px, 120px);
     z-index: -500;
     position: absolute;
+
+    border: #4E525A solid 1px
 }
-
-
 
 
 #counting {
