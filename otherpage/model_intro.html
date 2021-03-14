@@ -78,21 +78,39 @@
     </nav>
     <nav class="navblocker bgc-primary">It's navblocker at z-index:0</nav>
 
-    <div class="air" >
-        <div class="air4"></div>
-        <div class="air4 bgc-cover-primary"></div>
-        <div class="air4"></div>
-        <div class="air4 bgc-cover-primary"></div>
+    <div class="intro-container">
+        <div id="intro-blocker-1" class="d-none"></div>
+
+        <article class="intro-book-init row txt-center" id="intro-1">
+            <div class="col-6 txt-center" id="intro-book-1">
+                <img class="" src="../image/model-intro-1.png" alt="">
+            </div>
+            <div class="col-6 txt-center" id="intro-book-2">
+                <div class="">
+                    <div class="txt-center">
+                        <h1>Predict centers</h1>
+                        <h1>Predict height and width</h1>
+                        <h1>Form bounding boxes</h1>
+                    </div>
+                    <div id="intro-test-set" class="txt-center mt-20 showboxshape_3" >
+                        <img id="intro-test-1" class="" src="../image/intro-test-1.png" alt="">
+                        <img id="intro-test-2" class="" src="../image/intro-test-2.png" alt="">
+                        <img id="intro-test-3" class="" src="../image/intro-test-3.png" alt="">
+                    </div>
+                </div>
+                
+            </div>
+
+        </article>
+
+        <section id="intro-sec-4" class="bgc-cover-primary">4</section>
+        <section id="intro-sec-5">5</section>
+        <section id="intro-sec-6" class="bgc-cover-primary">6</section>
+        <section id="intro-sec-7">7</section>
+        <section id="intro-sec-8" class="bgc-cover-primary">8</section>
 
 
-    </div>
 
-    <div class="fixme" id="scroll-test-1">
-        <img class="" src="../image/model-intro-1.png" alt="">
-    </div>
-
-
-    <div class="air bgc-secondary">
     </div>
 
     <div class="footer bg-secondary color-muted">
@@ -103,31 +121,98 @@
 
     
     <script>
+        var bookTop = $('#intro-1').offset().top;   
+        
+        var navblockerHere = ($('.navblocker').offset().top + document.querySelector('.navblocker').offsetHeight);
+        
+        var secHeight = Math.min((0.95*window.innerHeight), (1.00*window.innerHeight - document.querySelector('.navblocker').offsetHeight));
+        var sec1Top = Math.min((0.05*window.innerHeight), (document.querySelector('.navblocker').offsetHeight));
+        var sec2Top = 1.00*window.innerHeight;
+        var sec3Top = Math.min((1.95*window.innerHeight), (2.00*window.innerHeight - 1*document.querySelector('.navblocker').offsetHeight));
+        var sec4Top = Math.min((2.90*window.innerHeight), (3.00*window.innerHeight - 2*document.querySelector('.navblocker').offsetHeight));
+        var sec5Top = Math.min((3.85*window.innerHeight), (4.00*window.innerHeight - 3*document.querySelector('.navblocker').offsetHeight));
+        var sec6Top = Math.min((4.80*window.innerHeight), (5.00*window.innerHeight - 4*document.querySelector('.navblocker').offsetHeight));
+        var sec7Top = Math.min((5.75*window.innerHeight), (6.00*window.innerHeight - 5*document.querySelector('.navblocker').offsetHeight));
+        var sec8Top = Math.min((6.70*window.innerHeight), (7.00*window.innerHeight - 6*document.querySelector('.navblocker').offsetHeight));
+        // window.innerHeight = 100vh
 
-        var fixmeTop = $('.fixme').offset().top;       // get initial position of the element
-        
-        $(window).scroll(function() {                  // assign scroll event listener
-        
+
+        console.log(bookTop);
+        console.log(navblockerHere);
+        console.log(sec3Top);
+
+        $(window).scroll(function() {
             var currentScroll = $(window).scrollTop(); // get current position
-            
-            // console.log(fixmeTop, currentScroll);
 
-            if (currentScroll >= fixmeTop) {           // apply position: fixed if you
-                $('.fixme').css({                      // scroll to that element or below it
-                    position: 'fixed',
-                    top: '0',
-                    left: '0'
-                });
-            } else {                                   // apply position: static
-                $('.fixme').css({                      // if you scroll above it
-                    position: 'static'
-                });
+            // first scroll
+            if ((currentScroll + navblockerHere) > bookTop) {
+                $('#intro-1').addClass("intro-book-move-1");
+                $('#intro-1').removeClass("intro-book-init");
+            } else {
+                $('#intro-1').addClass("intro-book-init");
+                $('#intro-1').removeClass("intro-book-move-1");
+            }
+
+            $('#intro-test-1').css({
+                opacity: function() {
+                    var opacity = 1;
+                    // if ((currentScroll + navblockerHere) > sec2Top - 0.6*secHeight) {
+                    //     opacity = 1 - ((currentScroll + navblockerHere) - (sec2Top - 0.2*secHeight))/(0.4*secHeight);
+                    // } else if ((currentScroll + navblockerHere) > sec2Top - 0.2*secHeight) {
+                    //     opacity = 0
+                    // } else {
+                    //     opacity = 1
+                    // }
+                    return opacity;
+                }
+            });
+            $('#intro-test-2').css({
+                opacity: function() {
+                    var opacity = 0;
+                    if ((currentScroll + navblockerHere) > sec2Top - 0.8*secHeight) {
+                        opacity = ((currentScroll + navblockerHere) - (sec2Top - 0.4*secHeight))/(0.4*secHeight);
+                    } else if ((currentScroll + navblockerHere) > sec2Top - 0.4*secHeight) {
+                        opacity = 1
+                    } else {
+                        opacity = 0
+                    }
+                    return opacity;
+                }
+            });
+            $('#intro-test-3').css({
+                opacity: function() {
+                    var opacity = 0;
+                    if ((currentScroll + navblockerHere) > sec3Top - 0.8*secHeight) {
+                        opacity = ((currentScroll + navblockerHere) - (sec3Top - 0.4*secHeight))/(0.4*secHeight);
+                    } else if ((currentScroll + navblockerHere) > sec3Top - 0.4*secHeight) {
+                        opacity = 1
+                    } else {
+                        opacity = 0
+                    }
+                    return opacity;
+                    return opacity;
+                }
+            });
+
+
+
+            // then .. stop
+            if ((currentScroll + navblockerHere) > sec4Top) {
+                // console.log("should stop");
+                $('#intro-1').addClass("intro-book-move-2");
+                $('#intro-1').removeClass("intro-book-move-1");
+                $('#intro-blocker-1').removeClass("d-none");
+            } else {
+                // console.log("should bork");
+                $('#intro-1').addClass("intro-book-move-1");
+                $('#intro-blocker-1').addClass("d-none");
+                $('#intro-1').removeClass("intro-book-move-2");
             }
         
         });
+        //   document.getElementById("demo").innerHTML = "You scrolled in div.";
         
-        
-            </script>
+        </script>
 
 </body>
 
