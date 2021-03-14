@@ -86,13 +86,19 @@
                 <img class="" src="../image/model-intro-1.png" alt="">
             </div>
             <div class="col-6 txt-center" id="intro-book-2">
-                <div class="">
-                    <div class="txt-center">
-                        <h1>Predict centers</h1>
-                        <h1>Predict height and width</h1>
-                        <h1>Form bounding boxes</h1>
+                <div class="" style="width: 100%;">
+                    <!-- DO NOT CHAMGE STYLE WIDTH:100% -->
+                    <div class="intro-descript txt-center">
+                        <h1 class="intro-script-1 bgc-primary">Predict centers</h1>
+                        <h1 class="intro-script-2 bgc-primary">Predict height and width</h1>
+                        <h1 class="intro-script-3 bgc-primary">Form bounding boxes</h1>
                     </div>
-                    <div id="intro-test-set" class="txt-center mt-20 showboxshape_3" >
+                    <div class="intro-descript txt-center">
+                        <p class="intro-script-1 bgc-primary">Predict centers</p>
+                        <p class="intro-script-2 bgc-primary">Predict height and width</p>
+                        <p class="intro-script-3 bgc-primary">Form bounding boxes</p>
+                    </div>
+                    <div class="intro-test-set txt-center mt-20" >
                         <img id="intro-test-1" class="" src="../image/intro-test-1.png" alt="">
                         <img id="intro-test-2" class="" src="../image/intro-test-2.png" alt="">
                         <img id="intro-test-3" class="" src="../image/intro-test-3.png" alt="">
@@ -103,11 +109,11 @@
 
         </article>
 
-        <section id="intro-sec-4" class="bgc-cover-primary">4</section>
+        <section id="intro-sec-4" class="showboxshape_3">4</section>
         <section id="intro-sec-5">5</section>
-        <section id="intro-sec-6" class="bgc-cover-primary">6</section>
+        <section id="intro-sec-6" class="showboxshape_3">6</section>
         <section id="intro-sec-7">7</section>
-        <section id="intro-sec-8" class="bgc-cover-primary">8</section>
+        <section id="intro-sec-8" class="showboxshape_3">8</section>
 
 
 
@@ -136,7 +142,9 @@
         var sec8Top = Math.min((6.70*window.innerHeight), (7.00*window.innerHeight - 6*document.querySelector('.navblocker').offsetHeight));
         // window.innerHeight = 100vh
 
-
+        $('#intro-blocker-1').css({
+            height: (sec4Top - navblockerHere)
+        });
         console.log(bookTop);
         console.log(navblockerHere);
         console.log(sec3Top);
@@ -153,6 +161,19 @@
                 $('#intro-1').removeClass("intro-book-move-1");
             }
 
+            $('.intro-script-1').css({
+                opacity: function() {
+                    var opacity = 1;
+                    // if ((currentScroll + navblockerHere) > sec2Top - 0.6*secHeight) {
+                    //     opacity = 1 - ((currentScroll + navblockerHere) - (sec2Top - 0.2*secHeight))/(0.4*secHeight);
+                    // } else if ((currentScroll + navblockerHere) > sec2Top - 0.2*secHeight) {
+                    //     opacity = 0
+                    // } else {
+                    //     opacity = 1
+                    // }
+                    return opacity;
+                }
+            });
             $('#intro-test-1').css({
                 opacity: function() {
                     var opacity = 1;
@@ -166,6 +187,20 @@
                     return opacity;
                 }
             });
+
+            $('.intro-script-2').css({
+                opacity: function() {
+                    var opacity = 0;
+                    if ((currentScroll + navblockerHere) > sec2Top - 0.8*secHeight) {
+                        opacity = ((currentScroll + navblockerHere) - (sec2Top - 0.4*secHeight))/(0.4*secHeight);
+                    } else if ((currentScroll + navblockerHere) > sec2Top - 0.4*secHeight) {
+                        opacity = 1
+                    } else {
+                        opacity = 0
+                    }
+                    return opacity;
+                }
+            });
             $('#intro-test-2').css({
                 opacity: function() {
                     var opacity = 0;
@@ -176,6 +211,21 @@
                     } else {
                         opacity = 0
                     }
+                    return opacity;
+                }
+            });
+
+            $('.intro-script-3').css({
+                opacity: function() {
+                    var opacity = 0;
+                    if ((currentScroll + navblockerHere) > sec3Top - 0.8*secHeight) {
+                        opacity = ((currentScroll + navblockerHere) - (sec3Top - 0.4*secHeight))/(0.4*secHeight);
+                    } else if ((currentScroll + navblockerHere) > sec3Top - 0.4*secHeight) {
+                        opacity = 1
+                    } else {
+                        opacity = 0
+                    }
+                    return opacity;
                     return opacity;
                 }
             });
@@ -193,7 +243,6 @@
                     return opacity;
                 }
             });
-
 
 
             // then .. stop

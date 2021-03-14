@@ -514,9 +514,11 @@ section {
 .intro-container article {
     padding: 0 10% 0 10%;
     border: #fff solid 1px;
+    overflow: hidden;
 }
 
 #intro-book-1 { border: blue solid 1px;}
+#intro-book-1 img { width: 100%;}
 #intro-book-2 { border: red solid 1px;}
 #intro-book-2 div div h1 {
     font-family: Roboto;
@@ -548,29 +550,53 @@ section {
     height: calc(95vh);
 }
 
-#intro-test-set {
+
+.intro-descript {
     position: relative;
     width: 100%;
-    height: 50vh;
+    height: 8vh;
 }
-#intro-test-1 {
+.intro-descript h1 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    font-size: min(calc(4vh), 40px);
+    line-height: min(calc(4vh), 40px);
+
+    text-align: center;
+    vertical-align: middle;
+}
+.intro-descript p {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    font-size: min(calc(3vh), 30px);
+    line-height: min(calc(3vh), 30px);
+
+    text-align: center;
+    vertical-align: middle;
+}
+
+.intro-test-set {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+}
+
+.intro-script-1, #intro-test-1 {
     position: absolute;
     width: 100%;
+    opacity: 1;
 }
-#intro-test-2 {
-    position: absolute;
-    width: 100%;
-    opacity: 0;
-}
-#intro-test-3 {
+.intro-script-2, #intro-test-2, .intro-script-3, #intro-test-3 {
     position: absolute;
     width: 100%;
     opacity: 0;
 }
 
+
 #intro-blocker-1 {
     width: 100%;
-    height: 285vh; 
     /* 3 section height */
 }
 
