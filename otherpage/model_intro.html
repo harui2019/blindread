@@ -83,7 +83,13 @@
 
         <article class="intro-book-unfix row txt-center" id="intro-1">
             <div class="col-6 txt-center" id="intro-book-1">
-                <img class="" src="../image/model-intro-1.png" alt="">
+                <div class="" style="width: 100%;">
+                    <h1>Our Approach - HRCenterNet</h1>
+                    <div class="intro-target">
+                        <!-- <img id="intro-target-1" class="h-mid" src="../image/model-intro-1.png" alt=""> -->
+                        <img id="intro-target-2" class="h-mid" src="../image/model-intro-2.png" alt="">
+                    </div>
+                </div>
             </div>
             <div class="col-6 txt-center" id="intro-book-2">
                 <div class="" style="width: 100%;">
@@ -109,17 +115,48 @@
             </div>
         </article>
 
-        <!-- <div id="intro-blocker-2" class=""></div> -->
-
         <article class="intro-book-unfix row txt-center d-none bgc-cover-primary" id="intro-2">
-            <div class="col-4 txt-center" id="intro-book-1">
-                <img class="" src="../image/model-intro-1.png" alt="">
+            <div class="col-4 txt-center" id="intro-book-3">
+                <div class="" style="width: 100%;">
+                    <h1>Heatmap loss</h1>
+                    <img class="h-mid" src="../image/model-intro-1.png" alt="">
+                </div>
             </div>
-            <div class="col-4 txt-center" id="intro-book-1">
-                <img class="" src="../image/model-intro-1.png" alt="">
+
+            <div class="col-4 txt-center" id="intro-book-4">
+                <div class="showboxshape_1" style="width: 100%;">
+                    <h1>Unnormalized 2D Gaussian</h1>
+                    <img class="h-mid" src="../image/model-intro-eq.png" alt="">
+                    <span class="material-icons intro-arrows-1">
+                        arrow_right_alt
+                    </span>
+                </div>
             </div>
-            <div class="col-4 txt-center" id="intro-book-1">
-                <img class="" src="../image/model-intro-1.png" alt="">
+
+            <div class="col-4 txt-center" id="intro-book-5">
+                <div class="" style="width: 100%;">
+                    <h1>Probabilistic Distribution</h1>
+                    <img class="h-mid" src="../image/model-intro-3.png" alt="">
+                </div>
+            </div>
+
+            <div class="col-4 txt-center" id="intro-book-6">
+                <div class="showboxshape_1" style="width: 100%;">
+                    <h1>Unnormalized 2D Gaussian</h1>
+                    <img class="h-mid" src="../image/model-intro-eq.png" alt="">
+                    <span class="material-icons intro-arrows-1">
+                        arrow_right_alt
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-12 txt-center" id="intro-book-bottom">
+                <p>
+                    &emsp;&emsp;In this study, we translate the topic of bird detection into a standard single keypoint detection problem. 
+                    The model output a heatmap, which is an image composed of the probability values representing the centroids in each pixel. 
+                    In addition to the heatmap, the model should also output the relevant properties for each center point, 
+                    including the corresponding length and width of each center point to form the binding box
+                </p>
             </div>
         </article>
 
@@ -161,7 +198,7 @@
         });
         console.log(bookTop);
         console.log(navblockerHere);
-        console.log(sec3Top);
+        console.log($('#intro-1').width());
 
         $(window).scroll(function() {
             var currentScroll = $(window).scrollTop(); // get current position
@@ -175,32 +212,8 @@
                 $('#intro-1').removeClass("intro-book-fix");
             }
 
-            $('.intro-script-1').css({
-                opacity: function() {
-                    var opacity = 1;
-                    // if ((currentScroll + navblockerHere) > sec2Top - 0.6*secHeight) {
-                    //     opacity = 1 - ((currentScroll + navblockerHere) - (sec2Top - 0.2*secHeight))/(0.4*secHeight);
-                    // } else if ((currentScroll + navblockerHere) > sec2Top - 0.2*secHeight) {
-                    //     opacity = 0
-                    // } else {
-                    //     opacity = 1
-                    // }
-                    return opacity;
-                }
-            });
-            $('#intro-test-1').css({
-                opacity: function() {
-                    var opacity = 1;
-                    // if ((currentScroll + navblockerHere) > sec2Top - 0.6*secHeight) {
-                    //     opacity = 1 - ((currentScroll + navblockerHere) - (sec2Top - 0.2*secHeight))/(0.4*secHeight);
-                    // } else if ((currentScroll + navblockerHere) > sec2Top - 0.2*secHeight) {
-                    //     opacity = 0
-                    // } else {
-                    //     opacity = 1
-                    // }
-                    return opacity;
-                }
-            });
+            $('.intro-script-1').css({ opacity: 1});
+            $('#intro-test-1').css({ opacity: 1});
 
             $('.intro-script-2').css({
                 opacity: function() {
@@ -240,7 +253,6 @@
                         opacity = 0
                     }
                     return opacity;
-                    return opacity;
                 }
             });
             $('#intro-test-3').css({
@@ -253,7 +265,6 @@
                     } else {
                         opacity = 0
                     }
-                    return opacity;
                     return opacity;
                 }
             });
@@ -288,6 +299,34 @@
                     top: 0
                 })
             }
+
+            var book4change = (function () {
+                if (((currentScroll + navblockerHere) > sec6Top - 0.7*secHeight) && ((currentScroll + navblockerHere) <= sec6Top - 0.5*secHeight)) {
+                    return (1 - ((currentScroll + navblockerHere) - (sec6Top - 0.7*secHeight))/(0.2*secHeight));
+                } else if ((currentScroll + navblockerHere) > sec6Top - 0.5*secHeight) {
+                    return 0;
+                } else {
+                    return 1;
+                }
+            })();
+
+            if (book4change < 1 && book4change >= 0.5) {
+                $("#intro-book-4").css({ opacity: 2*book4change - 1 });
+                $('#intro-book-4').removeClass("col-4")
+                $("#intro-book-4").css({ width: book4change * ($('#intro-1').width() / 3)});
+            } else if ((book4change < 0.5 && book4change > 0)) {
+                $("#intro-book-4").css({ opacity: 0 });
+                $("#intro-book-4").css({ width: book4change * ($('#intro-1').width() / 3)});
+                $("#intro-book-4").addClass("no-padding");
+            } else if (book4change == 0) {
+                $("#intro-book-4").css({ opacity: 0});
+                $("#intro-book-4").addClass("d-none");
+            } else {
+                $("#intro-book-4").css({ opacity: 1});
+                $('#intro-book-4').addClass("col-4")
+                $("#intro-book-4").removeClass("d-none");
+            }
+
         });
         //   document.getElementById("demo").innerHTML = "You scrolled in div.";
         

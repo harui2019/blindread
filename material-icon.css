@@ -64,3 +64,13 @@
     0%   {color: rgba(78, 82, 90, 0.85); top: 10vh;}
     100% {color: rgba(193, 133, 31, 0.85); top: 15vh;}
 }
+.material-icons.intro-arrows-1 {
+    position: relative;
+
+    top: 10vh;
+
+    width: 100%;
+    font-size: 15vh;
+    line-height: 5vh;
+    text-align: center;
+}
