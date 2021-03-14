@@ -79,26 +79,27 @@
     <nav class="navblocker bgc-primary">It's navblocker at z-index:0</nav>
 
     <div class="intro-container">
-        <div id="intro-blocker-1" class="d-none"></div>
+        <div id="intro-blocker-1" class="d-none">blocker-1</div>
 
-        <article class="intro-book-init row txt-center" id="intro-1">
+        <article class="intro-book-unfix row txt-center" id="intro-1">
             <div class="col-6 txt-center" id="intro-book-1">
                 <img class="" src="../image/model-intro-1.png" alt="">
             </div>
             <div class="col-6 txt-center" id="intro-book-2">
                 <div class="" style="width: 100%;">
                     <!-- DO NOT CHAMGE STYLE WIDTH:100% -->
-                    <div class="intro-descript txt-center">
+                    <div class="intro-descript">
                         <h1 class="intro-script-1 bgc-primary">Predict centers</h1>
                         <h1 class="intro-script-2 bgc-primary">Predict height and width</h1>
                         <h1 class="intro-script-3 bgc-primary">Form bounding boxes</h1>
                     </div>
-                    <div class="intro-descript txt-center">
+                    <div class="intro-descript">
                         <p class="intro-script-1 bgc-primary">Predict centers</p>
                         <p class="intro-script-2 bgc-primary">Predict height and width</p>
                         <p class="intro-script-3 bgc-primary">Form bounding boxes</p>
                     </div>
-                    <div class="intro-test-set txt-center mt-20" >
+                    <div class="intro-test-set mt-20 h-mid" >
+                        <!-- if position: absolute, h-mid will work wonderfully -->
                         <img id="intro-test-1" class="" src="../image/intro-test-1.png" alt="">
                         <img id="intro-test-2" class="" src="../image/intro-test-2.png" alt="">
                         <img id="intro-test-3" class="" src="../image/intro-test-3.png" alt="">
@@ -106,7 +107,20 @@
                 </div>
                 
             </div>
+        </article>
 
+        <!-- <div id="intro-blocker-2" class=""></div> -->
+
+        <article class="intro-book-unfix row txt-center d-none bgc-cover-primary" id="intro-2">
+            <div class="col-4 txt-center" id="intro-book-1">
+                <img class="" src="../image/model-intro-1.png" alt="">
+            </div>
+            <div class="col-4 txt-center" id="intro-book-1">
+                <img class="" src="../image/model-intro-1.png" alt="">
+            </div>
+            <div class="col-4 txt-center" id="intro-book-1">
+                <img class="" src="../image/model-intro-1.png" alt="">
+            </div>
         </article>
 
         <section id="intro-sec-4" class="showboxshape_3">4</section>
@@ -154,11 +168,11 @@
 
             // first scroll
             if ((currentScroll + navblockerHere) > bookTop) {
-                $('#intro-1').addClass("intro-book-move-1");
-                $('#intro-1').removeClass("intro-book-init");
+                $('#intro-1').addClass("intro-book-fix");
+                $('#intro-1').removeClass("intro-book-unfix");
             } else {
-                $('#intro-1').addClass("intro-book-init");
-                $('#intro-1').removeClass("intro-book-move-1");
+                $('#intro-1').addClass("intro-book-unfix");
+                $('#intro-1').removeClass("intro-book-fix");
             }
 
             $('.intro-script-1').css({
@@ -244,20 +258,36 @@
                 }
             });
 
-
             // then .. stop
             if ((currentScroll + navblockerHere) > sec4Top) {
                 // console.log("should stop");
-                $('#intro-1').addClass("intro-book-move-2");
-                $('#intro-1').removeClass("intro-book-move-1");
+                $('#intro-1').addClass("intro-book-unfix");
+                $('#intro-1').removeClass("intro-book-fix");
                 $('#intro-blocker-1').removeClass("d-none");
+                $('#intro-2').removeClass("d-none");
+
             } else {
                 // console.log("should bork");
-                $('#intro-1').addClass("intro-book-move-1");
+                $('#intro-1').addClass("intro-book-fix");
+                $('#intro-1').removeClass("intro-book-unfix");
                 $('#intro-blocker-1').addClass("d-none");
-                $('#intro-1').removeClass("intro-book-move-2");
+                $('#intro-2').addClass("d-none");
             }
         
+            // second scroll
+            if ((currentScroll + navblockerHere) > (sec5Top - 2)) {
+                $('#intro-2').addClass("intro-book-fix");
+                $('#intro-2').removeClass("intro-book-unfix");
+                $('#intro-2').css({
+                    top: navblockerHere
+                })
+            } else {
+                $('#intro-2').removeClass("intro-book-fix");
+                $('#intro-2').addClass("intro-book-unfix");
+                $('#intro-2').css({
+                    top: 0
+                })
+            }
         });
         //   document.getElementById("demo").innerHTML = "You scrolled in div.";
         
