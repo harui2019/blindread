@@ -179,7 +179,7 @@
     
     <script>
         var bookTop = $('#intro-1').offset().top;   
-        
+
         var navblockerHere = ($('.navblocker').offset().top + document.querySelector('.navblocker').offsetHeight);
         
         var secHeight = Math.min((0.95*window.innerHeight), (1.00*window.innerHeight - document.querySelector('.navblocker').offsetHeight));
@@ -193,18 +193,17 @@
         var sec8Top = Math.min((6.70*window.innerHeight), (7.00*window.innerHeight - 6*document.querySelector('.navblocker').offsetHeight));
         // window.innerHeight = 100vh
 
-        $('#intro-blocker-1').css({
-            height: (sec4Top - navblockerHere)
-        });
+        $('#intro-blocker-1').css({ height: (sec3Top - navblockerHere)});
         console.log(bookTop);
         console.log(navblockerHere);
         console.log($('#intro-1').width());
 
         $(window).scroll(function() {
-            var currentScroll = $(window).scrollTop(); // get current position
+            // var currentScroll = $(window).scrollTop(); // get current position
+            var stopBaseline = $(window).scrollTop() + navblockerHere;
 
             // first scroll
-            if ((currentScroll + navblockerHere) > bookTop) {
+            if (stopBaseline > bookTop) {
                 $('#intro-1').addClass("intro-book-fix");
                 $('#intro-1').removeClass("intro-book-unfix");
             } else {
@@ -212,65 +211,28 @@
                 $('#intro-1').removeClass("intro-book-fix");
             }
 
+            var introChange1 = (function(workSec) {
+                var initwork = workSec + 0*secHeight;
+                var stopwork = workSec + 0.4*secHeight;
+                var opacity = (stopBaseline - stopwork)/(0.4*secHeight);
+                if ((opacity > 0) && (opacity < 1)) {
+                    return opacity;
+                } else if (opacity > 1) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            });
+
             $('.intro-script-1').css({ opacity: 1});
             $('#intro-test-1').css({ opacity: 1});
-
-            $('.intro-script-2').css({
-                opacity: function() {
-                    var opacity = 0;
-                    if ((currentScroll + navblockerHere) > sec2Top - 0.8*secHeight) {
-                        opacity = ((currentScroll + navblockerHere) - (sec2Top - 0.4*secHeight))/(0.4*secHeight);
-                    } else if ((currentScroll + navblockerHere) > sec2Top - 0.4*secHeight) {
-                        opacity = 1
-                    } else {
-                        opacity = 0
-                    }
-                    return opacity;
-                }
-            });
-            $('#intro-test-2').css({
-                opacity: function() {
-                    var opacity = 0;
-                    if ((currentScroll + navblockerHere) > sec2Top - 0.8*secHeight) {
-                        opacity = ((currentScroll + navblockerHere) - (sec2Top - 0.4*secHeight))/(0.4*secHeight);
-                    } else if ((currentScroll + navblockerHere) > sec2Top - 0.4*secHeight) {
-                        opacity = 1
-                    } else {
-                        opacity = 0
-                    }
-                    return opacity;
-                }
-            });
-
-            $('.intro-script-3').css({
-                opacity: function() {
-                    var opacity = 0;
-                    if ((currentScroll + navblockerHere) > sec3Top - 0.8*secHeight) {
-                        opacity = ((currentScroll + navblockerHere) - (sec3Top - 0.4*secHeight))/(0.4*secHeight);
-                    } else if ((currentScroll + navblockerHere) > sec3Top - 0.4*secHeight) {
-                        opacity = 1
-                    } else {
-                        opacity = 0
-                    }
-                    return opacity;
-                }
-            });
-            $('#intro-test-3').css({
-                opacity: function() {
-                    var opacity = 0;
-                    if ((currentScroll + navblockerHere) > sec3Top - 0.8*secHeight) {
-                        opacity = ((currentScroll + navblockerHere) - (sec3Top - 0.4*secHeight))/(0.4*secHeight);
-                    } else if ((currentScroll + navblockerHere) > sec3Top - 0.4*secHeight) {
-                        opacity = 1
-                    } else {
-                        opacity = 0
-                    }
-                    return opacity;
-                }
-            });
+            $('.intro-script-2').css({ opacity: introChange1(sec1Top)});
+            $('#intro-test-2').css({ opacity: introChange1(sec1Top)});
+            $('.intro-script-3').css({ opacity: introChange1(sec2Top)});
+            $('#intro-test-3').css({ opacity: introChange1(sec2Top)});
 
             // then .. stop
-            if ((currentScroll + navblockerHere) > sec4Top) {
+            if (stopBaseline > sec3Top) {
                 // console.log("should stop");
                 $('#intro-1').addClass("intro-book-unfix");
                 $('#intro-1').removeClass("intro-book-fix");
@@ -286,7 +248,7 @@
             }
         
             // second scroll
-            if ((currentScroll + navblockerHere) > (sec5Top - 2)) {
+            if (stopBaseline > (sec4Top - 2)) {
                 $('#intro-2').addClass("intro-book-fix");
                 $('#intro-2').removeClass("intro-book-unfix");
                 $('#intro-2').css({
@@ -300,31 +262,38 @@
                 })
             }
 
-            var book4change = (function () {
-                if (((currentScroll + navblockerHere) > sec6Top - 0.7*secHeight) && ((currentScroll + navblockerHere) <= sec6Top - 0.5*secHeight)) {
-                    return (1 - ((currentScroll + navblockerHere) - (sec6Top - 0.7*secHeight))/(0.2*secHeight));
-                } else if ((currentScroll + navblockerHere) > sec6Top - 0.5*secHeight) {
+            var bookWidth = 0.333333 * $('#intro-2').width();
+
+            var introChange2 = (function (workSec) {
+                var initwork = workSec - 0.7*secHeight;
+                var stopwork = workSec - 0.5*secHeight;
+                if ((stopBaseline > initwork) && (stopBaseline <= stopwork)) {
+                    return (1 - (stopBaseline - initwork)/(0.2*secHeight));
+                } else if (stopBaseline > stopwork) {
                     return 0;
                 } else {
                     return 1;
                 }
-            })();
+            });
 
-            if (book4change < 1 && book4change >= 0.5) {
-                $("#intro-book-4").css({ opacity: 2*book4change - 1 });
+            if (introChange2(sec5Top) < 1 && introChange2(sec5Top) >= 0.5) {
+                $("#intro-book-4").css({ opacity: 2*introChange2(sec5Top) - 1 });
+                $("#intro-book-4").css({ width: introChange2(sec5Top) * bookWidth});
                 $('#intro-book-4').removeClass("col-4")
-                $("#intro-book-4").css({ width: book4change * ($('#intro-1').width() / 3)});
-            } else if ((book4change < 0.5 && book4change > 0)) {
+            } else if ((introChange2(sec5Top) < 0.5 && introChange2(sec5Top) > 0)) {
                 $("#intro-book-4").css({ opacity: 0 });
-                $("#intro-book-4").css({ width: book4change * ($('#intro-1').width() / 3)});
+                $("#intro-book-4").css({ width: introChange2(sec5Top) * bookWidth});
                 $("#intro-book-4").addClass("no-padding");
-            } else if (book4change == 0) {
-                $("#intro-book-4").css({ opacity: 0});
+                $("#intro-book-4").removeClass("d-none");
+            } else if (introChange2(sec5Top) == 0) {
+                $("#intro-book-4").css({ opacity: 0 });
                 $("#intro-book-4").addClass("d-none");
             } else {
                 $("#intro-book-4").css({ opacity: 1});
+                $("#intro-book-4").css({ width: bookWidth});
                 $('#intro-book-4').addClass("col-4")
                 $("#intro-book-4").removeClass("d-none");
+                $("#intro-book-4").removeClass("no-padding");
             }
 
         });
