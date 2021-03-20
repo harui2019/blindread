@@ -140,29 +140,42 @@
                 <div class="v-center" style="width: 100%;">
                     <h1>Probabilistic Distribution</h1>
                     <img style="width: 80%;" class="h-mid" src="../image/model-intro-3.png" alt="">
+                    <!-- <svg id="line-1" class="showboxshape_2" width="50" height="50"><line x1="0" y1="100%" x2="100%" y2="0%" /></svg>
+                    <svg id="line-2" class="showboxshape_3" width="50" height="50"><line x1="0" y1="0" x2="100%" y2="100%" /></svg> -->
                 </div>
             </div>
             <!-- intro-book-6 -->
             <div class="col-4 txt-center d-none" id="intro-book-6">
                 <div class="showboxshape_1 v-center" style="width: 100%;">
-                    <table>
-                        <tr>
-                            <td>0.8</td>
-                            <td>0.9</td>
-                            <td>0.8</td>
-                        </tr>
-                        <tr>
-                            <td>0.9</td>
-                            <td>1</td>
-                            <td>0.9</td>
-                        </tr>
-                        <tr>
-                            <td>0.8</td>
-                            <td>0.9</td>
-                            <td>0.8</td>
-                        </tr>
-                    </table>
-                    <img style="width: 100%;" class="h-mid" src="../image/model-intro-eq.png" alt="">
+                    <div class="showboxshape_1 intro-book-table">
+                        <table id="intro-book-table-1">
+                            <tr>
+                                <td>0.8</td>
+                                <td>0.9</td>
+                                <td>0.8</td>
+                            </tr>
+                            <tr>
+                                <td>0.9</td>
+                                <td>1</td>
+                                <td>0.9</td>
+                            </tr>
+                            <tr>
+                                <td>0.8</td>
+                                <td>0.9</td>
+                                <td>0.8</td>
+                            </tr>
+                        </table>
+                        <table id="intro-book-table-2">
+                            <tr>
+                                <th>Our Model</th>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="air" style="height: 10vh;"></div>
+                    <div class="intro-book-eq">
+                        <img id="intro-book-eq-2" style="width: 100%;" class="h-mid" src="../image/model-intro-eq-2.png" alt="">
+                        <img id="intro-book-eq-3"  style="width: 100%;" class="h-mid" src="../image/model-intro-eq-3.png" alt="">
+                    </div>
                 </div>
             </div>
             <!-- intro-book-7 -->
@@ -285,6 +298,7 @@
             // intro-2
 
             var bookWidth = 0.333333 * $('#intro-2').width();
+            // root.style.setProperty('--intro-book-width', bookWidth+"px");
 
             var introChange2 = (function (workSec) {
                 var initwork = workSec - 0.7*secHeight;
@@ -296,11 +310,19 @@
             });
 
             // this is for #intro-book-3 div::after, #intro-book-5 div::after
-            root.style.setProperty('--intro-book-img-height', $("#intro-book-3 > div > img").height()+"px");
+            root.style.setProperty('--intro-book-img-height', $("#intro-book-5 > div > img").height()+"px");
+            root.style.setProperty('--intro-book-img-clienttop',($("#intro-book-5 > div > img").position().top) +"px");
+            root.style.setProperty('--intro-book-table-clienttop',($("#intro-book-6 > div > .intro-book-table ").position().top) +"px");
+            root.style.setProperty('--intro-book-table-height',($("#intro-book-6 > div > .intro-book-table ").height()) +"px");
+
+            // console.log($("#intro-book-6 > div > table").position().top, $("#intro-book-6 > div > table").height());
+            // console.log($("#intro-book-6 > div > table").position().top, $("#intro-book-6 > div > table").height(), ($("#intro-book-5 > div > img").height()*0.5), $("#intro-book-5 > div > img").position().top);
+            // console.log();
+            // $("#intro-book-5 > svg").css({top: ($("#intro-book-5 > div > img").height().top)})
 
             // -------------------------
             // #intro-book-4 disapper 
-            // #intro-book-7 appear
+            // #intro-book-6 appear
             // at sec5
             if (introChange2(sec5Top) < 1 && introChange2(sec5Top) >= 0.5) {
                 $("#intro-book-4").css({ opacity: 2*introChange2(sec5Top) - 1 });
@@ -308,30 +330,35 @@
                 $('#intro-book-4').removeClass("col-4")
 
                 $("#intro-book-6").css({ opacity: 0 });
-                $("#intro-book-6").css({ width: (1 - introChange2(sec5Top)) * bookWidth });
+                $("#intro-book-6").css({ width: (1-introChange2(sec5Top)) * bookWidth });
+                $("#intro-book-6").addClass("no-padding");
 
                 // $(".intro-select-box-1").css({ opacity: 0});
                 root.style.setProperty('--intro-opacity-rule-2', 0);
+
             } else if ((introChange2(sec5Top) < 0.5 && introChange2(sec5Top) > 0)) {
                 $("#intro-book-4").css({ opacity: 0 });
-                $("#intro-book-4").css({ width: introChange2(sec5Top) * bookWidth });
+                $("#intro-book-4").css({ width: introChange2(sec5Top) * bookWidth});
                 $("#intro-book-4").addClass("no-padding");
                 $("#intro-book-4").removeClass("d-none");
 
                 $("#intro-book-6").css({ opacity: 1 - 2*introChange2(sec5Top) });
-                $("#intro-book-6").css({ width: (1 - introChange2(sec5Top)) * bookWidth });
+                $("#intro-book-6").css({ width: (1-introChange2(sec5Top)) * bookWidth - 1});
                 $("#intro-book-6").removeClass("d-none");
 
                 // $(".intro-select-box-1").css({ opacity: 1 - 2*introChange2(sec5Top)});
                 root.style.setProperty('--intro-opacity-rule-2', 1 - 2*introChange2(sec5Top));
+
             } else if (introChange2(sec5Top) == 0) {
                 $("#intro-book-4").css({ opacity: 0 });
+                $("#intro-book-4").addClass("no-padding");
                 $("#intro-book-4").addClass("d-none");
                 
                 $("#intro-book-6").css({ opacity: 1 });
                 $("#intro-book-6").css({ width: bookWidth });
                 $('#intro-book-6').addClass("col-4")
                 $("#intro-book-6").removeClass("d-none");
+                $("#intro-book-6").removeClass("no-padding");
 
                 // $(".intro-select-box-1").css({ opacity: 1 });
                 root.style.setProperty('--intro-opacity-rule-2', 1);
@@ -343,7 +370,9 @@
                 $("#intro-book-4").removeClass("no-padding");
 
                 $("#intro-book-6").css({ opacity: 0 });
+                $("#intro-book-6").css({ width: 0 });
                 $('#intro-book-6').addClass("d-none")
+                $("#intro-book-6").addClass("no-padding");
                 $("#intro-book-6").removeClass("col-4");
 
                 // $(".intro-select-box-1").css({ opacity: 0 });
@@ -352,12 +381,20 @@
 
             // -------------------------
             // #intro-book-3 disapper
-            // #intro-book-6 expand
+            // #intro-book-6 expand and #intro-book-eq-2 showup
             // at sec6
             if (introChange2(sec6Top) < 1 && introChange2(sec6Top) >= 0.5) {
                 $("#intro-book-3").css({ opacity: 2*introChange2(sec6Top) - 1 });
                 $("#intro-book-3").css({ width: introChange2(sec6Top) * bookWidth });
                 $('#intro-book-3').removeClass("col-4");
+
+                $('#intro-book-6').removeClass("col-4");
+                $("#intro-book-6").css({ width: (2 - introChange2(sec6Top)) * bookWidth });
+
+                $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-2").css({ opacity: 0 });
+                $("#intro-book-6 > div > .intro-book-table > table").css({ width: bookWidth - 24 });
+
+                root.style.setProperty('--intro-opacity-rule-3', 1 - introChange2(sec6Top));
 
             } else if ((introChange2(sec6Top) < 0.5 && introChange2(sec6Top) > 0)) {
                 $("#intro-book-3").css({ opacity: 0 });
@@ -365,10 +402,26 @@
                 $("#intro-book-3").addClass("no-padding");
                 $("#intro-book-3").removeClass("d-none");
 
+                $('#intro-book-6').removeClass("col-8");
+                $("#intro-book-6").css({ width: (2 - introChange2(sec6Top)) * bookWidth});
+
+                $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-2").css({ opacity: 1 - 2*introChange2(sec6Top) });
+                $("#intro-book-6 > div > .intro-book-table > table").css({ width: bookWidth - 24 });
+
+                root.style.setProperty('--intro-opacity-rule-3', 1 - introChange2(sec6Top));
+
             } else if (introChange2(sec6Top) == 0) {
                 $("#intro-book-3").css({ opacity: 0 });
+                $("#intro-book-3").css({ width: 0 });
                 $("#intro-book-3").addClass("d-none");
 
+                $("#intro-book-6").css({ width: 2*bookWidth });
+                $('#intro-book-6').addClass("col-8");
+
+                $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-2").css({ opacity: 1 })
+                $("#intro-book-6 > div > .intro-book-table > table").css({ width: bookWidth - 24 })
+
+                root.style.setProperty('--intro-opacity-rule-3', 1);
             } else {
                 $("#intro-book-3").css({ opacity: 1 });
                 $("#intro-book-3").css({ width: bookWidth });
@@ -376,9 +429,40 @@
                 $("#intro-book-3").removeClass("d-none");
                 $("#intro-book-3").removeClass("no-padding");
 
+                $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-2").css({ opacity: 0 })
+                $("#intro-book-6 > div > .intro-book-table > table").css({ width: bookWidth - 24 })
+
+                root.style.setProperty('--intro-opacity-rule-3', 0);
             }
 
 
+            if (introChange2(sec7Top) < 1 && introChange2(sec7Top) >= 0.5) {
+                $("#intro-book-6 > div > .intro-book-table > #intro-book-table-1").css({ opacity: 2*introChange2(sec7Top) - 1 });
+                $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-2").css({ opacity: 2*introChange2(sec7Top) - 1 });
+
+                $("#intro-book-6 > div > .intro-book-table > #intro-book-table-2").css({ opacity: 0 });
+                $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-3").css({ opacity: 0 });
+            } else if ((introChange2(sec7Top) < 0.5 && introChange2(sec7Top) > 0)) {
+                $("#intro-book-6 > div > .intro-book-table > #intro-book-table-1").css({ opacity: 0 });
+                $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-2").css({ opacity: 0 });
+                
+                $("#intro-book-6 > div > .intro-book-table > #intro-book-table-2").css({ opacity: 1 - 2*introChange2(sec7Top) });
+                $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-3").css({ opacity: 1 - 2*introChange2(sec7Top) });
+            } else if (introChange2(sec7Top) == 0) {
+                $("#intro-book-6 > div > .intro-book-table > #intro-book-table-1").css({ opacity: 0 });
+                $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-2").css({ opacity: 0 });
+                
+                $("#intro-book-6 > div > .intro-book-table > #intro-book-table-2").css({ opacity: 1 });
+                $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-3").css({ opacity: 1 });
+
+            } else {
+                $("#intro-book-6 > div > .intro-book-table > #intro-book-table-1").css({ opacity: 1 });
+                $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-2").css({ opacity: 1 });
+                
+                $("#intro-book-6 > div > .intro-book-table > #intro-book-table-2").css({ opacity: 0 });
+                $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-3").css({ opacity: 0 });
+
+            }
             // -----------------------------------------------
             // scroll function end
         });

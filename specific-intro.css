@@ -1,9 +1,13 @@
 /* intro page */
 /* Being independent for too much properties */
 :root {
-    /* --intro-opacity-rule-1: 1; */
     --intro-opacity-rule-2: 0;
+    --intro-opacity-rule-3: 0;
+    --intro-book-3-arrow-move: 0px;
     --intro-book-img-height: 100px;
+    --intro-book-img-clienttop: 0px;
+    --intro-book-table-clienttop: 0px;
+    --intro-book-table-height: 0px;
 }
 
 #model_intro { font-family: Roboto;}
@@ -142,31 +146,29 @@
 
 /* intro - 下半部 */
 /* intro-book-3 and after */
-#intro-book-3, #intro-book-4, #intro-book-5, #intro-book-6 { border: red solid 1px;}
+/* #intro-book-3, #intro-book-4, #intro-book-5, #intro-book-6 { border: red solid 1px;} */
 #intro-book-3 div, #intro-book-5 div {
     min-height: 300px;
     height: calc((95vh)*0.6);
-    max-height: 400px;
     position: relative;
 }
 #intro-book-4 div {
     min-height: 300px;
     height: calc((95vh)*0.3);
-    max-height: 400px;
     position: relative;
 }
 
 #intro-book-3 div img,
 #intro-book-4 div img,
 #intro-book-5 div img {
-    width: 100%;
+    width: auto;
+    height: 100% ;
     position: absolute;
     height: auto;
 }
 #intro-book-3 div h1,
 #intro-book-4 div h1,
 #intro-book-5 div h1 {
-    border: red solid 1px;
 
     width: 100%;
     height:  min(calc(8vh), 80px);
@@ -196,15 +198,79 @@
     opacity: var(--intro-opacity-rule-2);
 }
 
-#intro-book-6 div table {
+#intro-book-3::after {
+    position: absolute;
+    top: 30%;
+    right: calc(13% * var(--intro-opacity-rule-2));
+    opacity: var(--intro-opacity-rule-2);
+    display: inline-block;
+    width: 100%;
+
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 15vh;
+    line-height: 5vh;
+    text-align: center;
+
+    content: "keyboard_arrow_right";
+    z-index: 100;
+}
+
+#intro-book-5::after {
+    position: absolute;
+    top: 30%;
+    right: calc(-12% + (26.5% * var(--intro-opacity-rule-3)));
+    opacity: var(--intro-opacity-rule-2);
+    display: inline-block;
+    width: 100%;
+
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 15vh;
+    line-height: 5vh;
+    text-align: center;
+
+    content: "keyboard_arrow_right";
+    z-index: 0;
+}
+
+/* #intro-book-5 #line-1 {
+    position: absolute;
+    top: calc(var(--intro-book-table-clienttop) - var(--intro-book-table-height)*0.5);
+    left: 87%;
+    height: calc((var(--intro-book-img-clienttop) + var(--intro-book-img-height)*0.15) - (var(--intro-book-table-clienttop) - var(--intro-book-table-height)*0.5));
+    width: 24%;
+}
+#intro-book-5 #line-2 {
+    position: absolute;
+    top: calc(var(--intro-book-img-clienttop) + var(--intro-book-img-height)*0.24);
+    left: 87%;
+    height: calc(var(--intro-book-table-clienttop) + var(--intro-book-table-height)*0.5 - (var(--intro-book-img-clienttop) + var(--intro-book-img-height)*0.24));
+    width: 24%;
+}
+#intro-book-5 line {
+    stroke: rgb(255, 255, 255);
+    stroke-width: 2px;
+
+    opacity: var(--intro-opacity-rule-2);
+} */
+
+#intro-book-6 .intro-book-table {
     position: relative;
+    height: 25vh;
+}
+#intro-book-6 .intro-book-table table {
     width: 100%;
     height: auto;
     /* aspect-ratio: 1/1; */
     border-collapse: collapse;
+
+    position: absolute;
 }
 
-#intro-book-6 td, #intro-book-6 th {
+#intro-book-6 #intro-book-table-1 td, #intro-book-6 #intro-book-table-1 th {
     border: rgba(255, 255, 255, 1) solid 2px;
 
     height: min(calc(6vh), 60px);
@@ -214,9 +280,12 @@
     font-family: Russo One;
 }
 
-/* #intro-book-6 div {
-    padding-top: 100%;
-} */
+#intro-book-6 .intro-book-eq {
+    position: relative;
+}
+#intro-book-6 .intro-book-eq img {
+    position: absolute;
+}
 
 #intro-book-bottom p {
     position: relative;
