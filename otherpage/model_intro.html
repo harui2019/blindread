@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../material-icon.css">
     <link rel="stylesheet" href="../bg-and-img.css">
     <link rel="stylesheet" href="../navbar.css">
+    <link rel="stylesheet" href="../specific-intro.css">
 
     <!-- javascript -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" 
@@ -33,26 +34,24 @@
             <ul class="menu d-flex">
                 <!-- 首頁 -->
                 <li class="drop">
-                    <a href="../index.html">HOME
-                        <span class="material-icons md-18">
-                            keyboard_arrow_down
-                        </span>
-                    </a>
-                    <ul class="drop-menu bgc-secondary">
-                        <!-- 面臨問題 -->
-                        <li class="drop">
-                            <a href="./home_issue.html">ISSUE</a>
-                        </li>
-                        <!-- 未來展望 -->
-                        <li class="drop">
-                            <a href="./home_future.html">FUTURE</a>
-                        </li>
-                    </ul>
+                    <a href="../index.html">HOME</a>
+                </li>
+                <!-- 面臨問題 -->
+                <li class="drop">
+                    <a href="./home_issue.html">ISSUE</a>
+                </li>
+                <!-- 未來展望 -->
+                <li class="drop">
+                    <a href="./home_future.html">FUTURE</a>
+                </li>
+                <!-- 上傳 -->
+                <li class="drop">
+                    <a href="./upload.html">UPLOAD</a>
                 </li>
                 <!-- 模型介紹 -->
                 <li class="drop">
                     <a href="./model.html">MODEL
-                        <span class="active material-icons md-18">
+                        <span class="material-icons md-18 active">
                             keyboard_arrow_down
                         </span>
                     </a>
@@ -77,11 +76,12 @@
         </div>
     </nav>
     <nav class="navblocker bgc-primary">It's navblocker at z-index:0</nav>
-
+    
     <div class="intro-container">
         <div id="intro-blocker-1" class="d-none">blocker-1</div>
-
+        <!-- intro-1 -->
         <article class="intro-book-unfix row txt-center" id="intro-1">
+            <!-- intro-book-1 -->
             <div class="col-6 txt-center" id="intro-book-1">
                 <div class="" style="width: 100%;">
                     <h1>Our Approach - HRCenterNet</h1>
@@ -91,6 +91,7 @@
                     </div>
                 </div>
             </div>
+            <!-- intro-book-2 -->
             <div class="col-6 txt-center" id="intro-book-2">
                 <div class="" style="width: 100%;">
                     <!-- DO NOT CHAMGE STYLE WIDTH:100% -->
@@ -115,42 +116,60 @@
             </div>
         </article>
 
+        <!-- intro-2 -->
         <article class="intro-book-unfix row txt-center d-none bgc-cover-primary" id="intro-2">
+            <!-- intro-book-3 -->
             <div class="col-4 txt-center" id="intro-book-3">
-                <div class="" style="width: 100%;">
+                <div class="v-center" style="width: 100%;">
                     <h1>Heatmap loss</h1>
-                    <img class="h-mid" src="../image/model-intro-1.png" alt="">
+                    <img style="width: 80%;" class="h-mid" src="../image/model-intro-1.png" alt="">
                 </div>
             </div>
-
+            <!-- intro-book-4 -->
             <div class="col-4 txt-center" id="intro-book-4">
-                <div class="showboxshape_1" style="width: 100%;">
+                <div class="v-center" style="width: 100%;">
                     <h1>Unnormalized 2D Gaussian</h1>
-                    <img class="h-mid" src="../image/model-intro-eq.png" alt="">
+                    <img style="width: 80%;" class="h-mid" src="../image/model-intro-eq.png" alt="">
                     <span class="material-icons intro-arrows-1">
                         arrow_right_alt
                     </span>
                 </div>
             </div>
-
+            <!-- intro-book-5 -->
             <div class="col-4 txt-center" id="intro-book-5">
-                <div class="" style="width: 100%;">
+                <div class="v-center" style="width: 100%;">
                     <h1>Probabilistic Distribution</h1>
-                    <img class="h-mid" src="../image/model-intro-3.png" alt="">
+                    <img style="width: 80%;" class="h-mid" src="../image/model-intro-3.png" alt="">
                 </div>
             </div>
-
-            <div class="col-4 txt-center" id="intro-book-6">
-                <div class="showboxshape_1" style="width: 100%;">
-                    <h1>Unnormalized 2D Gaussian</h1>
-                    <img class="h-mid" src="../image/model-intro-eq.png" alt="">
-                    <span class="material-icons intro-arrows-1">
-                        arrow_right_alt
-                    </span>
+            <!-- intro-book-6 -->
+            <div class="col-4 txt-center d-none" id="intro-book-6">
+                <div class="showboxshape_1 v-center" style="width: 100%;">
+                    <table>
+                        <tr>
+                            <td>0.8</td>
+                            <td>0.9</td>
+                            <td>0.8</td>
+                        </tr>
+                        <tr>
+                            <td>0.9</td>
+                            <td>1</td>
+                            <td>0.9</td>
+                        </tr>
+                        <tr>
+                            <td>0.8</td>
+                            <td>0.9</td>
+                            <td>0.8</td>
+                        </tr>
+                    </table>
+                    <img style="width: 100%;" class="h-mid" src="../image/model-intro-eq.png" alt="">
                 </div>
             </div>
+            <!-- intro-book-7 -->
 
-            <div class="col-12 txt-center" id="intro-book-bottom">
+
+            <!-- intro-book-bottom -->
+            <div class="col-12 txt-center showboxshape_1" id="intro-book-bottom">
                 <p>
                     &emsp;&emsp;In this study, we translate the topic of bird detection into a standard single keypoint detection problem. 
                     The model output a heatmap, which is an image composed of the probability values representing the centroids in each pixel. 
@@ -178,6 +197,7 @@
 
     
     <script>
+        var root = document.documentElement
         var bookTop = $('#intro-1').offset().top;   
 
         var navblockerHere = ($('.navblocker').offset().top + document.querySelector('.navblocker').offsetHeight);
@@ -202,7 +222,12 @@
             // var currentScroll = $(window).scrollTop(); // get current position
             var stopBaseline = $(window).scrollTop() + navblockerHere;
 
-            // first scroll
+            // -----------------------------------------------
+            // intro-1
+
+            // -------------------------
+            // intro-1 start moving
+            // at sec1
             if (stopBaseline > bookTop) {
                 $('#intro-1').addClass("intro-book-fix");
                 $('#intro-1').removeClass("intro-book-unfix");
@@ -215,23 +240,22 @@
                 var initwork = workSec + 0*secHeight;
                 var stopwork = workSec + 0.4*secHeight;
                 var opacity = (stopBaseline - stopwork)/(0.4*secHeight);
-                if ((opacity > 0) && (opacity < 1)) {
-                    return opacity;
-                } else if (opacity > 1) {
-                    return 1;
-                } else {
-                    return 0;
-                }
+                if ((opacity > 0) && (opacity < 1)) { return opacity; } 
+                else if (opacity > 1) { return 1; } 
+                else { return 0; }
             });
 
-            $('.intro-script-1').css({ opacity: 1});
-            $('#intro-test-1').css({ opacity: 1});
             $('.intro-script-2').css({ opacity: introChange1(sec1Top)});
             $('#intro-test-2').css({ opacity: introChange1(sec1Top)});
             $('.intro-script-3').css({ opacity: introChange1(sec2Top)});
             $('#intro-test-3').css({ opacity: introChange1(sec2Top)});
+            // root.style.setProperty('--intro-opacity-rule-1-1', introChange1(sec1Top));
+            // root.style.setProperty('--intro-opacity-rule-1-2', introChange1(sec2Top));
 
-            // then .. stop
+            // -------------------------
+            // intro-1 stop 
+            // intro-2 showup
+            // at sec3
             if (stopBaseline > sec3Top) {
                 // console.log("should stop");
                 $('#intro-1').addClass("intro-book-unfix");
@@ -247,20 +271,18 @@
                 $('#intro-2').addClass("d-none");
             }
         
-            // second scroll
             if (stopBaseline > (sec4Top - 2)) {
                 $('#intro-2').addClass("intro-book-fix");
                 $('#intro-2').removeClass("intro-book-unfix");
-                $('#intro-2').css({
-                    top: navblockerHere
-                })
+                $('#intro-2').css({ top: navblockerHere })
             } else {
                 $('#intro-2').removeClass("intro-book-fix");
                 $('#intro-2').addClass("intro-book-unfix");
-                $('#intro-2').css({
-                    top: 0
-                })
+                $('#intro-2').css({ top: 0 })
             }
+
+            // -----------------------------------------------
+            // intro-2
 
             var bookWidth = 0.333333 * $('#intro-2').width();
 
@@ -268,38 +290,100 @@
                 var initwork = workSec - 0.7*secHeight;
                 var stopwork = workSec - 0.5*secHeight;
                 if ((stopBaseline > initwork) && (stopBaseline <= stopwork)) {
-                    return (1 - (stopBaseline - initwork)/(0.2*secHeight));
-                } else if (stopBaseline > stopwork) {
-                    return 0;
-                } else {
-                    return 1;
-                }
+                    return (1 - (stopBaseline - initwork)/(0.2*secHeight)); } 
+                else if (stopBaseline > stopwork) { return 0; } 
+                else { return 1; }
             });
 
+            // this is for #intro-book-3 div::after, #intro-book-5 div::after
+            root.style.setProperty('--intro-book-img-height', $("#intro-book-3 > div > img").height()+"px");
+
+            // -------------------------
+            // #intro-book-4 disapper 
+            // #intro-book-7 appear
+            // at sec5
             if (introChange2(sec5Top) < 1 && introChange2(sec5Top) >= 0.5) {
                 $("#intro-book-4").css({ opacity: 2*introChange2(sec5Top) - 1 });
-                $("#intro-book-4").css({ width: introChange2(sec5Top) * bookWidth});
+                $("#intro-book-4").css({ width: introChange2(sec5Top) * bookWidth });
                 $('#intro-book-4').removeClass("col-4")
+
+                $("#intro-book-6").css({ opacity: 0 });
+                $("#intro-book-6").css({ width: (1 - introChange2(sec5Top)) * bookWidth });
+
+                // $(".intro-select-box-1").css({ opacity: 0});
+                root.style.setProperty('--intro-opacity-rule-2', 0);
             } else if ((introChange2(sec5Top) < 0.5 && introChange2(sec5Top) > 0)) {
                 $("#intro-book-4").css({ opacity: 0 });
-                $("#intro-book-4").css({ width: introChange2(sec5Top) * bookWidth});
+                $("#intro-book-4").css({ width: introChange2(sec5Top) * bookWidth });
                 $("#intro-book-4").addClass("no-padding");
                 $("#intro-book-4").removeClass("d-none");
+
+                $("#intro-book-6").css({ opacity: 1 - 2*introChange2(sec5Top) });
+                $("#intro-book-6").css({ width: (1 - introChange2(sec5Top)) * bookWidth });
+                $("#intro-book-6").removeClass("d-none");
+
+                // $(".intro-select-box-1").css({ opacity: 1 - 2*introChange2(sec5Top)});
+                root.style.setProperty('--intro-opacity-rule-2', 1 - 2*introChange2(sec5Top));
             } else if (introChange2(sec5Top) == 0) {
                 $("#intro-book-4").css({ opacity: 0 });
                 $("#intro-book-4").addClass("d-none");
-            } else {
-                $("#intro-book-4").css({ opacity: 1});
-                $("#intro-book-4").css({ width: bookWidth});
+                
+                $("#intro-book-6").css({ opacity: 1 });
+                $("#intro-book-6").css({ width: bookWidth });
+                $('#intro-book-6').addClass("col-4")
+                $("#intro-book-6").removeClass("d-none");
+
+                // $(".intro-select-box-1").css({ opacity: 1 });
+                root.style.setProperty('--intro-opacity-rule-2', 1);
+            } else { // when == 1
+                $("#intro-book-4").css({ opacity: 1 });
+                $("#intro-book-4").css({ width: bookWidth });
                 $('#intro-book-4').addClass("col-4")
                 $("#intro-book-4").removeClass("d-none");
                 $("#intro-book-4").removeClass("no-padding");
+
+                $("#intro-book-6").css({ opacity: 0 });
+                $('#intro-book-6').addClass("d-none")
+                $("#intro-book-6").removeClass("col-4");
+
+                // $(".intro-select-box-1").css({ opacity: 0 });
+                root.style.setProperty('--intro-opacity-rule-2', 0);
             }
 
+            // -------------------------
+            // #intro-book-3 disapper
+            // #intro-book-6 expand
+            // at sec6
+            if (introChange2(sec6Top) < 1 && introChange2(sec6Top) >= 0.5) {
+                $("#intro-book-3").css({ opacity: 2*introChange2(sec6Top) - 1 });
+                $("#intro-book-3").css({ width: introChange2(sec6Top) * bookWidth });
+                $('#intro-book-3').removeClass("col-4");
+
+            } else if ((introChange2(sec6Top) < 0.5 && introChange2(sec6Top) > 0)) {
+                $("#intro-book-3").css({ opacity: 0 });
+                $("#intro-book-3").css({ width: introChange2(sec6Top) * bookWidth });
+                $("#intro-book-3").addClass("no-padding");
+                $("#intro-book-3").removeClass("d-none");
+
+            } else if (introChange2(sec6Top) == 0) {
+                $("#intro-book-3").css({ opacity: 0 });
+                $("#intro-book-3").addClass("d-none");
+
+            } else {
+                $("#intro-book-3").css({ opacity: 1 });
+                $("#intro-book-3").css({ width: bookWidth });
+                $('#intro-book-3').addClass("col-4")
+                $("#intro-book-3").removeClass("d-none");
+                $("#intro-book-3").removeClass("no-padding");
+
+            }
+
+
+            // -----------------------------------------------
+            // scroll function end
         });
-        //   document.getElementById("demo").innerHTML = "You scrolled in div.";
         
-        </script>
+    </script>
 
 </body>
 
