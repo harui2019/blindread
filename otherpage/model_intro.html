@@ -117,7 +117,7 @@
         </article>
 
         <!-- intro-2 -->
-        <article class="intro-book-unfix row txt-center d-none bgc-cover-primary" id="intro-2">
+        <article class="intro-book-unfix row txt-center bgc-cover-primary" id="intro-2">
             <!-- intro-book-3 -->
             <div class="col-4 txt-center" id="intro-book-3">
                 <div class="v-center" style="width: 100%;">
@@ -140,14 +140,27 @@
                 <div class="v-center" style="width: 100%;">
                     <h1>Probabilistic Distribution</h1>
                     <img style="width: 80%;" class="h-mid" src="../image/model-intro-3.png" alt="">
-                    <!-- <svg id="line-1" class="showboxshape_2" width="50" height="50"><line x1="0" y1="100%" x2="100%" y2="0%" /></svg>
-                    <svg id="line-2" class="showboxshape_3" width="50" height="50"><line x1="0" y1="0" x2="100%" y2="100%" /></svg> -->
+                    <svg id="line-1" class="" width="50" height="50">
+                        <line x1="0%" y1="20%" x2="100%" y2="10%" />
+                    </svg>
+                    <svg id="line-2" class="" width="50" height="50">
+                        <line x1="18%" y1="28%" x2="100%" y2="10%" />
+                        <rect x="9%" y="26%"/>
+                        <line x1="35%" y1="47%" x2="100%" y2="10%" />
+                        <rect x="26%" y="45%"/>
+                        <line x1="52%" y1="52%" x2="100%" y2="10%" />
+                        <rect x="43%" y="50%"/>
+                        <line x1="10%" y1="71%" x2="100%" y2="10%" />
+                        <rect x="1%" y="69%"/>
+                        <line x1="52%" y1="81%" x2="100%" y2="10%" />
+                        <rect x="43%" y="79%"/>
+                    </svg>
                 </div>
             </div>
             <!-- intro-book-6 -->
             <div class="col-4 txt-center d-none" id="intro-book-6">
-                <div class="showboxshape_1 v-center" style="width: 100%;">
-                    <div class="showboxshape_1 intro-book-table">
+                <div class="v-center" style="width: 100%;">
+                    <div class="intro-book-table">
                         <table id="intro-book-table-1">
                             <tr>
                                 <td>0.8</td>
@@ -166,23 +179,24 @@
                             </tr>
                         </table>
                         <table id="intro-book-table-2">
-                            <tr>
+                            <tr class="txt-center">
                                 <th>Our Model</th>
+                                <th class="v-center"><span class="material-icons intro-arrows-2">arrow_right_alt</span></th>
+                                <th>Corresponding width and height to the character</th>
                             </tr>
                         </table>
+
                     </div>
-                    <div id="air" style="height: 10vh;"></div>
+                    <div id="air" style="height: 0vh;"></div>
                     <div class="intro-book-eq">
-                        <img id="intro-book-eq-2" style="width: 100%;" class="h-mid" src="../image/model-intro-eq-2.png" alt="">
-                        <img id="intro-book-eq-3"  style="width: 100%;" class="h-mid" src="../image/model-intro-eq-3.png" alt="">
+                        <img id="intro-book-eq-2" style="width: 100%;" class="h-mid" src="../image/intro-book-eq-2.svg" alt="">
+                        <img id="intro-book-eq-3" style="width: 100%;" class="h-mid" src="../image/intro-book-eq-3.svg" alt="">
                     </div>
                 </div>
             </div>
-            <!-- intro-book-7 -->
-
 
             <!-- intro-book-bottom -->
-            <div class="col-12 txt-center showboxshape_1" id="intro-book-bottom">
+            <div class="col-12 txt-center" id="intro-book-bottom">
                 <p>
                     &emsp;&emsp;In this study, we translate the topic of bird detection into a standard single keypoint detection problem. 
                     The model output a heatmap, which is an image composed of the probability values representing the centroids in each pixel. 
@@ -192,13 +206,12 @@
             </div>
         </article>
 
-        <section id="intro-sec-4" class="showboxshape_3">4</section>
-        <section id="intro-sec-5">5</section>
-        <section id="intro-sec-6" class="showboxshape_3">6</section>
-        <section id="intro-sec-7">7</section>
-        <section id="intro-sec-8" class="showboxshape_3">8</section>
-
-
+        <section style="color: transparent;" id="intro-sec-4" class="showboxshape_3_">4</section>
+        <section style="color: transparent;" id="intro-sec-5">5</section>
+        <section style="color: transparent;" id="intro-sec-6" class="showboxshape_3_">6</section>
+        <section style="color: transparent;" id="intro-sec-7">7</section>
+        
+        <div id="intro-blocker-2" class="">blocker-2</div>
 
     </div>
 
@@ -208,7 +221,6 @@
         </div>
     </div>
 
-    
     <script>
         var root = document.documentElement
         var bookTop = $('#intro-1').offset().top;   
@@ -226,7 +238,9 @@
         var sec8Top = Math.min((6.70*window.innerHeight), (7.00*window.innerHeight - 6*document.querySelector('.navblocker').offsetHeight));
         // window.innerHeight = 100vh
 
-        $('#intro-blocker-1').css({ height: (sec3Top - navblockerHere)});
+        $('#intro-blocker-1').css({ height: (sec3Top - navblockerHere) - 2.5});
+        $('#intro-blocker-2').css({ height: (sec4Top + navblockerHere - 100)});
+        $('#intro-blocker-3').css({ height: (secHeight + navblockerHere)});
         console.log(bookTop);
         console.log(navblockerHere);
         console.log($('#intro-1').width());
@@ -234,7 +248,7 @@
         $(window).scroll(function() {
             // var currentScroll = $(window).scrollTop(); // get current position
             var stopBaseline = $(window).scrollTop() + navblockerHere;
-
+            console.log($("body").height(), stopBaseline);
             // -----------------------------------------------
             // intro-1
 
@@ -273,7 +287,8 @@
                 // console.log("should stop");
                 $('#intro-1').addClass("intro-book-unfix");
                 $('#intro-1').removeClass("intro-book-fix");
-                $('#intro-blocker-1').removeClass("d-none");
+                $('#intro-blocker-1').removeClass("d-none")
+                $('#intro-blocker-2').addClass("d-none");
                 $('#intro-2').removeClass("d-none");
 
             } else {
@@ -281,6 +296,7 @@
                 $('#intro-1').addClass("intro-book-fix");
                 $('#intro-1').removeClass("intro-book-unfix");
                 $('#intro-blocker-1').addClass("d-none");
+                $('#intro-blocker-2').removeClass("d-none");
                 $('#intro-2').addClass("d-none");
             }
         
@@ -291,9 +307,13 @@
             } else {
                 $('#intro-2').removeClass("intro-book-fix");
                 $('#intro-2').addClass("intro-book-unfix");
-                $('#intro-2').css({ top: 0 })
+                $('#intro-2').css({ top: 0 });
             }
 
+            // page height unwanted change fix
+            if ((stopBaseline < (sec4Top - 2)) && (stopBaseline > sec3Top)) {
+                $('#intro-sec-7').addClass("d-none");
+            } else { $('#intro-sec-7').removeClass("d-none"); }
             // -----------------------------------------------
             // intro-2
 
@@ -311,79 +331,75 @@
 
             // this is for #intro-book-3 div::after, #intro-book-5 div::after
             root.style.setProperty('--intro-book-img-height', $("#intro-book-5 > div > img").height()+"px");
+            root.style.setProperty('--intro-book-img-width', $("#intro-book-5 > div > img").width()+"px");
             root.style.setProperty('--intro-book-img-clienttop',($("#intro-book-5 > div > img").position().top) +"px");
-            root.style.setProperty('--intro-book-table-clienttop',($("#intro-book-6 > div > .intro-book-table ").position().top) +"px");
-            root.style.setProperty('--intro-book-table-height',($("#intro-book-6 > div > .intro-book-table ").height()) +"px");
+            root.style.setProperty('--intro-book-img-offsetleft',($("#intro-book-5 > div > img").offset().left) +"px");
 
-            // console.log($("#intro-book-6 > div > table").position().top, $("#intro-book-6 > div > table").height());
-            // console.log($("#intro-book-6 > div > table").position().top, $("#intro-book-6 > div > table").height(), ($("#intro-book-5 > div > img").height()*0.5), $("#intro-book-5 > div > img").position().top);
-            // console.log();
-            // $("#intro-book-5 > svg").css({top: ($("#intro-book-5 > div > img").height().top)})
+            root.style.setProperty('--intro-book-table-height',($("#intro-book-6 > div > .intro-book-table").height()) +"px");
+            root.style.setProperty('--intro-book-table-clienttop',($("#intro-book-6 > div > .intro-book-table").position().top) +"px");
+            root.style.setProperty('--intro-book-table-offsetleft',($("#intro-book-6 > div > .intro-book-table").offset().left) +"px");
 
             // -------------------------
             // #intro-book-4 disapper 
             // #intro-book-6 appear
             // at sec5
             if (introChange2(sec5Top) < 1 && introChange2(sec5Top) >= 0.5) {
+                // root.style.setProperty('--intro-opacity-rule-21', 2*introChange2(sec5Top) - 1);
                 $("#intro-book-4").css({ opacity: 2*introChange2(sec5Top) - 1 });
                 $("#intro-book-4").css({ width: introChange2(sec5Top) * bookWidth });
                 $('#intro-book-4').removeClass("col-4")
 
+                root.style.setProperty('--intro-opacity-rule-2', 0);
                 $("#intro-book-6").css({ opacity: 0 });
                 $("#intro-book-6").css({ width: (1-introChange2(sec5Top)) * bookWidth });
                 $("#intro-book-6").addClass("no-padding");
 
-                // $(".intro-select-box-1").css({ opacity: 0});
-                root.style.setProperty('--intro-opacity-rule-2', 0);
-
             } else if ((introChange2(sec5Top) < 0.5 && introChange2(sec5Top) > 0)) {
+                // root.style.setProperty('--intro-opacity-rule-21', 0);
                 $("#intro-book-4").css({ opacity: 0 });
                 $("#intro-book-4").css({ width: introChange2(sec5Top) * bookWidth});
                 $("#intro-book-4").addClass("no-padding");
                 $("#intro-book-4").removeClass("d-none");
 
+                root.style.setProperty('--intro-opacity-rule-2', 1 - 2*introChange2(sec5Top));
                 $("#intro-book-6").css({ opacity: 1 - 2*introChange2(sec5Top) });
                 $("#intro-book-6").css({ width: (1-introChange2(sec5Top)) * bookWidth - 1});
                 $("#intro-book-6").removeClass("d-none");
-
-                // $(".intro-select-box-1").css({ opacity: 1 - 2*introChange2(sec5Top)});
-                root.style.setProperty('--intro-opacity-rule-2', 1 - 2*introChange2(sec5Top));
-
             } else if (introChange2(sec5Top) == 0) {
+                // root.style.setProperty('--intro-opacity-rule-21', 0);
                 $("#intro-book-4").css({ opacity: 0 });
                 $("#intro-book-4").addClass("no-padding");
                 $("#intro-book-4").addClass("d-none");
                 
+                root.style.setProperty('--intro-opacity-rule-2', 1);
                 $("#intro-book-6").css({ opacity: 1 });
                 $("#intro-book-6").css({ width: bookWidth });
                 $('#intro-book-6').addClass("col-4")
                 $("#intro-book-6").removeClass("d-none");
                 $("#intro-book-6").removeClass("no-padding");
-
-                // $(".intro-select-box-1").css({ opacity: 1 });
-                root.style.setProperty('--intro-opacity-rule-2', 1);
             } else { // when == 1
+                // root.style.setProperty('--intro-opacity-rule-21', 1);
                 $("#intro-book-4").css({ opacity: 1 });
                 $("#intro-book-4").css({ width: bookWidth });
                 $('#intro-book-4').addClass("col-4")
                 $("#intro-book-4").removeClass("d-none");
                 $("#intro-book-4").removeClass("no-padding");
 
+                root.style.setProperty('--intro-opacity-rule-2', 0);
                 $("#intro-book-6").css({ opacity: 0 });
                 $("#intro-book-6").css({ width: 0 });
                 $('#intro-book-6').addClass("d-none")
                 $("#intro-book-6").addClass("no-padding");
                 $("#intro-book-6").removeClass("col-4");
-
-                // $(".intro-select-box-1").css({ opacity: 0 });
-                root.style.setProperty('--intro-opacity-rule-2', 0);
             }
 
             // -------------------------
             // #intro-book-3 disapper
-            // #intro-book-6 expand and #intro-book-eq-2 showup
+            // #intro-book-6 expand
+            // #intro-book-eq-2 showup
             // at sec6
             if (introChange2(sec6Top) < 1 && introChange2(sec6Top) >= 0.5) {
+                // root.style.setProperty('--intro-opacity-rule-31', 2*introChange2(sec6Top) - 1);
                 $("#intro-book-3").css({ opacity: 2*introChange2(sec6Top) - 1 });
                 $("#intro-book-3").css({ width: introChange2(sec6Top) * bookWidth });
                 $('#intro-book-3').removeClass("col-4");
@@ -391,12 +407,11 @@
                 $('#intro-book-6').removeClass("col-4");
                 $("#intro-book-6").css({ width: (2 - introChange2(sec6Top)) * bookWidth });
 
-                $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-2").css({ opacity: 0 });
-                $("#intro-book-6 > div > .intro-book-table > table").css({ width: bookWidth - 24 });
-
                 root.style.setProperty('--intro-opacity-rule-3', 1 - introChange2(sec6Top));
-
+                $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-2").css({ opacity: 0 });
+                $("#intro-book-6 > div > .intro-book-table > #intro-book-table-1").css({ width: bookWidth - 24 });
             } else if ((introChange2(sec6Top) < 0.5 && introChange2(sec6Top) > 0)) {
+                // root.style.setProperty('--intro-opacity-rule-31', 0);
                 $("#intro-book-3").css({ opacity: 0 });
                 $("#intro-book-3").css({ width: introChange2(sec6Top) * bookWidth });
                 $("#intro-book-3").addClass("no-padding");
@@ -405,12 +420,11 @@
                 $('#intro-book-6').removeClass("col-8");
                 $("#intro-book-6").css({ width: (2 - introChange2(sec6Top)) * bookWidth});
 
-                $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-2").css({ opacity: 1 - 2*introChange2(sec6Top) });
-                $("#intro-book-6 > div > .intro-book-table > table").css({ width: bookWidth - 24 });
-
                 root.style.setProperty('--intro-opacity-rule-3', 1 - introChange2(sec6Top));
-
+                $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-2").css({ opacity: 1 - 2*introChange2(sec6Top) });
+                $("#intro-book-6 > div > .intro-book-table > #intro-book-table-1").css({ width: bookWidth - 24 });
             } else if (introChange2(sec6Top) == 0) {
+                // root.style.setProperty('--intro-opacity-rule-31', 0);
                 $("#intro-book-3").css({ opacity: 0 });
                 $("#intro-book-3").css({ width: 0 });
                 $("#intro-book-3").addClass("d-none");
@@ -418,57 +432,67 @@
                 $("#intro-book-6").css({ width: 2*bookWidth });
                 $('#intro-book-6').addClass("col-8");
 
-                $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-2").css({ opacity: 1 })
-                $("#intro-book-6 > div > .intro-book-table > table").css({ width: bookWidth - 24 })
-
                 root.style.setProperty('--intro-opacity-rule-3', 1);
+                $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-2").css({ opacity: 1 })
+                $("#intro-book-6 > div > .intro-book-table > #intro-book-table-1").css({ width: bookWidth - 24 })
             } else {
+                // root.style.setProperty('--intro-opacity-rule-31', 0);
                 $("#intro-book-3").css({ opacity: 1 });
                 $("#intro-book-3").css({ width: bookWidth });
                 $('#intro-book-3').addClass("col-4")
                 $("#intro-book-3").removeClass("d-none");
                 $("#intro-book-3").removeClass("no-padding");
 
-                $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-2").css({ opacity: 0 })
-                $("#intro-book-6 > div > .intro-book-table > table").css({ width: bookWidth - 24 })
-
                 root.style.setProperty('--intro-opacity-rule-3', 0);
+                $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-2").css({ opacity: 0 })
+                $("#intro-book-6 > div > .intro-book-table > #intro-book-table-1").css({ width: bookWidth - 24 })
             }
 
-
+            // #intro-book-eq-2 disappear
+            // #intro-book-5 svg#line-2 and #intro-book-eq-3 showup
+            // at sec7
             if (introChange2(sec7Top) < 1 && introChange2(sec7Top) >= 0.5) {
+                // root.style.setProperty('--intro-opacity-rule-41', 2*introChange2(sec7Top) - 1);
                 $("#intro-book-6 > div > .intro-book-table > #intro-book-table-1").css({ opacity: 2*introChange2(sec7Top) - 1 });
                 $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-2").css({ opacity: 2*introChange2(sec7Top) - 1 });
 
+                // root.style.setProperty('--intro-opacity-rule-42', 0);
                 $("#intro-book-6 > div > .intro-book-table > #intro-book-table-2").css({ opacity: 0 });
                 $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-3").css({ opacity: 0 });
+                $("#intro-book-5 > div > #line-2").css({ opacity: 0 });
             } else if ((introChange2(sec7Top) < 0.5 && introChange2(sec7Top) > 0)) {
+                // root.style.setProperty('--intro-opacity-rule-41', 0);
                 $("#intro-book-6 > div > .intro-book-table > #intro-book-table-1").css({ opacity: 0 });
                 $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-2").css({ opacity: 0 });
                 
+                // root.style.setProperty('--intro-opacity-rule-42', 1 - 2*introChange2(sec7Top));
                 $("#intro-book-6 > div > .intro-book-table > #intro-book-table-2").css({ opacity: 1 - 2*introChange2(sec7Top) });
                 $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-3").css({ opacity: 1 - 2*introChange2(sec7Top) });
+                $("#intro-book-5 > div > #line-2").css({ opacity: 1 - 2*introChange2(sec7Top) });
             } else if (introChange2(sec7Top) == 0) {
+                // root.style.setProperty('--intro-opacity-rule-41', 0);
                 $("#intro-book-6 > div > .intro-book-table > #intro-book-table-1").css({ opacity: 0 });
                 $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-2").css({ opacity: 0 });
                 
+                // root.style.setProperty('--intro-opacity-rule-42', 1);
                 $("#intro-book-6 > div > .intro-book-table > #intro-book-table-2").css({ opacity: 1 });
                 $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-3").css({ opacity: 1 });
+                $("#intro-book-5 > div > #line-2").css({ opacity: 1 });
 
             } else {
+                // root.style.setProperty('--intro-opacity-rule-41', 1);
                 $("#intro-book-6 > div > .intro-book-table > #intro-book-table-1").css({ opacity: 1 });
-                $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-2").css({ opacity: 1 });
+                // $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-2").css({ opacity: 1 });
                 
+                // root.style.setProperty('--intro-opacity-rule-42', 0);
                 $("#intro-book-6 > div > .intro-book-table > #intro-book-table-2").css({ opacity: 0 });
                 $("#intro-book-6 > div > .intro-book-eq > #intro-book-eq-3").css({ opacity: 0 });
-
+                $("#intro-book-5 > div > #line-2").css({ opacity: 0 });
             }
             // -----------------------------------------------
             // scroll function end
         });
         
     </script>
-
 </body>
-
 </html>

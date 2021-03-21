@@ -3,19 +3,23 @@
 :root {
     --intro-opacity-rule-2: 0;
     --intro-opacity-rule-3: 0;
-    --intro-book-3-arrow-move: 0px;
-    --intro-book-img-height: 100px;
-    --intro-book-img-clienttop: 0px;
-    --intro-book-table-clienttop: 0px;
-    --intro-book-table-height: 0px;
-}
 
+    --intro-book-3-arrow-move: 0px;
+
+    --intro-book-img-height: 0px;
+    --intro-book-img-width: 0px;
+    --intro-book-img-clienttop: 0px;
+    --intro-book-img-offsetleft: 0px;
+    --intro-book-table-height: 0px;
+    --intro-book-table-clienttop: 0px;
+    --intro-book-table-offsetleft: 0px;
+}
 #model_intro { font-family: Roboto;}
 #model_intro h1 { font-family: Russo One;}
 
 .intro-container article {
     padding: 0 10% 0 10%;
-    border: #fff solid 1px;
+    /* border: #fff solid 1px; */
     overflow: hidden;
 }
 
@@ -39,17 +43,6 @@
 
 /* intro - 上半部 */
 /* intro-book-1 */
-/* #intro-book-1::after {
-    display: block;
-    content: "";
-    border: red solid 3px;
-    position: relative;
-    top: calc(-11%);
-    height: 12%;
-
-    left: calc(0.8*-20vw);
-    width: calc(0.8*12vw);
-} */
 .intro-target {
     min-height: 300px;
     height: calc((95vh)*0.6);
@@ -57,24 +50,13 @@
     max-width: 100%;
 
     position: relative;
-}
-.intro-target img { 
+} .intro-target img { 
     /* height: calc((95vh)*0.6); */
     max-height: calc((100vh - 40px)*0.6);
     max-width: 100%;
 
     position: absolute;
 }
-
-/* .intro-target #intro-target-2 {
-    z-index: 2;
-    animation-duration: 3s; 
-    animation-name: target-show-up;
-} @keyframes target-show-up {
-    0%   {opacity: 0;}
-    80%   {opacity: 0;}
-    100% {opacity: 1;}
-}  */
 
 #intro-book-1 div h1 {
     font-family: Russo One;
@@ -94,8 +76,7 @@
     position: relative;
     width: 100%;
     height: 8vh;
-}
-.intro-descript h1 {
+} .intro-descript h1 {
     font-family: Russo One;
     font-style: normal;
     font-weight: 400;
@@ -104,8 +85,7 @@
 
     text-align: center;
     vertical-align: middle;
-}
-.intro-descript p {
+} .intro-descript p {
     font-family: Roboto;
     font-style: normal;
     font-weight: 400;
@@ -120,44 +100,37 @@
     position: relative;
     width: 80%;
     max-width: 600px;
-
     min-height: 300px;
     height: calc((95vh)*0.5);
     max-height: calc((100vh - 40px)*0.5);
-}
-.intro-script-1, #intro-test-1 {
+} .intro-script-1, #intro-test-1 {
     position: absolute;
     max-height: calc((100vh - 40px)*0.6);
     width: 100%;
-
     opacity: 1;
-}
-.intro-script-2, #intro-test-2, .intro-script-3, #intro-test-3 {
+} .intro-script-2, #intro-test-2,
+.intro-script-3, #intro-test-3 {
     position: absolute;
     max-height: calc((100vh - 40px)*0.6);
     width: 100%;
-
-    /* opacity: var(--intro-opacity-rule-1); */
     opacity: 0;
-}
-#intro-blocker-1, #intro-blocker-2 {
+} #intro-blocker-1, #intro-blocker-2 {
     width: 100%;
 }
 
 /* intro - 下半部 */
 /* intro-book-3 and after */
 /* #intro-book-3, #intro-book-4, #intro-book-5, #intro-book-6 { border: red solid 1px;} */
-#intro-book-3 div, #intro-book-5 div {
+#intro-book-3 div,
+#intro-book-5 div {
     min-height: 300px;
     height: calc((95vh)*0.6);
     position: relative;
-}
-#intro-book-4 div {
+} #intro-book-4 div {
     min-height: 300px;
     height: calc((95vh)*0.3);
     position: relative;
 }
-
 #intro-book-3 div img,
 #intro-book-4 div img,
 #intro-book-5 div img {
@@ -169,7 +142,6 @@
 #intro-book-3 div h1,
 #intro-book-4 div h1,
 #intro-book-5 div h1 {
-
     width: 100%;
     height:  min(calc(8vh), 80px);
     position: relative;
@@ -183,8 +155,8 @@
     text-align: center;
     vertical-align: middle;
 }
-
-#intro-book-3 div::after, #intro-book-5 div::after {
+#intro-book-3 div::after,
+#intro-book-5 div::after {
     width: 9%;
     height: calc(var(--intro-book-img-height)*0.09);
     border: red solid 2px;
@@ -197,7 +169,6 @@
     display: block;
     opacity: var(--intro-opacity-rule-2);
 }
-
 #intro-book-3::after {
     position: absolute;
     top: 30%;
@@ -217,6 +188,10 @@
     z-index: 100;
 }
 
+/* intro-book-4 */
+
+/* intro-book-5 */
+
 #intro-book-5::after {
     position: absolute;
     top: 30%;
@@ -234,28 +209,35 @@
 
     content: "keyboard_arrow_right";
     z-index: 0;
-}
+} 
 
-/* #intro-book-5 #line-1 {
+#intro-book-5 #line-1 {
     position: absolute;
-    top: calc(var(--intro-book-table-clienttop) - var(--intro-book-table-height)*0.5);
+    top: calc(var(--intro-book-img-clienttop)+var(--intro-book-img-height)*0.15);
     left: 87%;
-    height: calc((var(--intro-book-img-clienttop) + var(--intro-book-img-height)*0.15) - (var(--intro-book-table-clienttop) - var(--intro-book-table-height)*0.5));
-    width: 24%;
-}
-#intro-book-5 #line-2 {
+    height: var(--intro-book-img-height);
+    width: calc(var(--intro-book-table-offsetleft) - var(--intro-book-img-offsetleft) - var(--intro-book-img-width)*0.95);
+} #intro-book-5 #line-2 {
     position: absolute;
-    top: calc(var(--intro-book-img-clienttop) + var(--intro-book-img-height)*0.24);
-    left: 87%;
-    height: calc(var(--intro-book-table-clienttop) + var(--intro-book-table-height)*0.5 - (var(--intro-book-img-clienttop) + var(--intro-book-img-height)*0.24));
-    width: 24%;
-}
-#intro-book-5 line {
+    top: calc(var(--intro-book-img-clienttop)+var(--intro-book-img-height)*0.15);
+    left: 10%;
+    height: var(--intro-book-img-height);
+    width: calc(var(--intro-book-table-offsetleft) - var(--intro-book-img-offsetleft));
+} #intro-book-5 line {
     stroke: rgb(255, 255, 255);
-    stroke-width: 2px;
+    stroke-width: 3px;
 
     opacity: var(--intro-opacity-rule-2);
-} */
+} #intro-book-5 rect {
+    stroke: rgb(255, 0, 0);
+    fill: transparent;
+    width: 9%;
+    height: calc(var(--intro-book-img-height)*0.06);
+    stroke-width: 2px;
+    opacity: var(--intro-opacity-rule-2);
+}
+
+/* intro-book-6 */
 
 #intro-book-6 .intro-book-table {
     position: relative;
@@ -263,15 +245,16 @@
 }
 #intro-book-6 .intro-book-table table {
     width: 100%;
+}
+#intro-book-6 .intro-book-table #intro-book-table-1 {
     height: auto;
     /* aspect-ratio: 1/1; */
     border-collapse: collapse;
-
     position: absolute;
 }
-
-#intro-book-6 #intro-book-table-1 td, #intro-book-6 #intro-book-table-1 th {
-    border: rgba(255, 255, 255, 1) solid 2px;
+#intro-book-6 #intro-book-table-1 td, 
+#intro-book-6 #intro-book-table-1 th {
+    border: rgba(255, 255, 255, 1) solid 3px;
 
     height: min(calc(6vh), 60px);
     font-size: min(calc(3vh), 30px);
@@ -279,18 +262,45 @@
     text-align: center;
     font-family: Russo One;
 }
-
+#intro-book-6 #intro-book-table-2 td:first-child, 
+#intro-book-6 #intro-book-table-2 th:first-child {
+    background-color: rgba(255, 255, 255, 1);
+    width: 35%;
+    height: 25vh;
+    font-size: min(calc(3vh), 30px);
+    line-height: 25vh;
+    text-align: center;
+    font-family: Russo One;
+    color: rgba(0, 0, 0, 1); /* bgc-primary */
+}
+#intro-book-6 #intro-book-table-2 td:nth-child(2), 
+#intro-book-6 #intro-book-table-2 th:nth-child(2) {
+    border: none;
+    width: 10%;
+}
+#intro-book-6 #intro-book-table-2 td:nth-child(3), 
+#intro-book-6 #intro-book-table-2 th:nth-child(3) {
+    border: none;
+    width: 55%;
+    font-size: min(calc(3vh), 30px);
+    line-height: min(calc(3vh), 30px);
+    text-align: center;
+    vertical-align: middle;
+    font-family: Russo One;
+}
 #intro-book-6 .intro-book-eq {
     position: relative;
+    height: 15vh;
 }
 #intro-book-6 .intro-book-eq img {
     position: absolute;
+    top: 20%;
 }
 
 #intro-book-bottom p {
     position: relative;
     width: 100%;
-    padding: 0 10% 0 10%;
+    padding: 0 5% 0 5%;
     vertical-align: middle;
 
     font-family: Roboto;

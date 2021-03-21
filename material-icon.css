@@ -66,11 +66,15 @@
 }
 .material-icons.intro-arrows-1 {
     position: relative;
-
     top: 10vh;
-
     width: 100%;
     font-size: 15vh;
     line-height: 5vh;
+    text-align: center;
+}
+.material-icons.intro-arrows-2 {
+    height: 100%;
+    position: relative;
+    font-size: 15vh;
     text-align: center;
 }
