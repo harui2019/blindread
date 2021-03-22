@@ -527,27 +527,16 @@ section {
 
 
 #counting {
-    color: #4E525A;
+    color: #6b6c6d;
     font-family: Russo One;
     font-size: 36px;
     text-align: center;
     display:flex;
   align-items:center;
   justify-content:center;
+  margin-top: 40vh;
 }
 
-
-#loading-bird {
-display:flex;
-  align-items:center;
-  justify-content:center;
-  width:600px;
-  height:600px;
-  background-image:url('./image/white-bird-shape.png');
-background-size: 300px 300px;
-background-repeat: no-repeat;
-background-position:46.5% 58%;
-}
 
 #result_title{
     color: #4E525A;
@@ -555,7 +544,6 @@ background-position:46.5% 58%;
     font-size: 36px;
     text-align: center;
     display:flex;
-  align-items:center;
   justify-content:center;
   height:60px;
   width: 450px;
@@ -566,14 +554,17 @@ background-position:46.5% 58%;
 }
 
 #counting_result{
-    color: #4E525A;
+    color: #ffffff;
     font-family: Russo One;
-    font-size: 36px;
-    text-align: center;
+    font-size: 24px;
     display:flex;
   align-items:center;
   justify-content:center;
-  top:180px;
+margin: 20px;
+margin-top: 160px;
+}
 
+#read-image{
+    width: 400px;
 }
 
