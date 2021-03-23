@@ -27,55 +27,44 @@
     
 </head>
 
-<body class="bgc-secondary color-light">
-    <nav class="bgc-primary">
+<body class="bgc-primary color-light">
+    <nav class="bgc-cover-primary color-light">
         <div class="container">
             <ul class="menu d-flex">
                 <!-- 首頁 -->
                 <li class="drop">
-                    <a  href="../index.html">HOME
-                        <span class="material-icons md-18">
-                            keyboard_arrow_down
-                        </span>
-                    </a>
-                    <ul class="drop-menu bgc-secondary">
-                        <!-- 挑戰說明 -->
-                        <li class="drop">
-                            <a href="./challenge_intro.html">CHALLENGE</a>
-                        </li>
-                        <!-- 棲地介紹 -->
-                        <li class="drop">
-                            <a href="./habitat_intro.html">HABITAT</a>
-                        </li>
-                    </ul>
+                    <a href="../index.html">HOME</a>
                 </li>
-                <!-- 模型介紹 -->
-                <li class="drop">
-                    <a href="./model_index.html">MODEL
-                        <span class="active material-icons md-18">
-                            keyboard_arrow_down
-                        </span>
-                    </a>
-                    <ul class="drop-menu bgc-secondary">
-                        <li class="drop">
-                            <a href="./model.html">MODEL</a>
-                        </li>
-                        <li class="drop">
-                            <a href="./function.html">FUNCTION</a>
-                        </li>
-                        <li class="drop">
-                            <a class="active" href="./method.html">METHODOLOGY</a>
-                        </li>
-                        <!-- <li><a href="https://vgg16.herokuapp.com/">前往上傳</a></li> -->
-                    </ul>
-                </li>
-                <!-- 上傳圖片 -->
+                <!-- 上傳 -->
                 <li class="drop">
                     <a href="./upload.html">UPLOAD</a>
                 </li>
-                <!-- 地圖 -->
+                <!-- 模型介紹 -->
                 <li class="drop">
-                    <a href="./map.html">MAP</a>
+                    <a href="./model.html">MODEL
+                        <span class="material-icons md-18 active">
+                            keyboard_arrow_down
+                        </span>
+                    </a>
+                    <ul class="drop-menu bgc-secondary">
+                        <li class="drop">
+                            <a class="active" href="./model_intro.html">INTRO</a>
+                        </li>
+                        <li class="drop">
+                            <a href="./model_function.html">DATASET</a>
+                        </li>
+                        <li class="drop">
+                            <a href="./model_method.html">METHODOLOGY</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 未來展望 -->
+                <li class="drop">
+                    <a href="./home_future.html">FUTURE</a>
+                </li>
+                <!-- 面臨問題 -->
+                <li class="drop">
+                    <a href="./home_issue.html">ISSUE</a>
                 </li>
                 <!-- 聯繫我們 -->
                 <li class="drop">
@@ -86,28 +75,26 @@
         </div>
     </nav>
     <nav class="navblocker bgc-primary">It's navblocker at z-index:0</nav>
-
+    
     <div class="container" id="model_intro">
         <div class="row">
-            <div class="col-12 start-100 mt-5">
+            <div class="col-2"></div>
+            <div class="col-8 start-100 mt-2">
                 
                     <h1 class="mt-60 fw-bold" id="topic">HRCenterNet</h1>
-                    <img src="../image/method01.png">
-                    <p class="mb-30 fw-bolder" id="">
-                        In this study, we translate the topic of bird detection into a standard single keypoint detection problem. The model output a heatmap, which is an image composed of the probability values representing the centroids in each pixel. In addition to the heatmap, the model should also output the relevant properties for each center point, including the corresponding length and width of each center point to form the binding box
+                    <div class="mb-30" id="model_article">
+                    <p>
+                        The digitization of Chinese historical documents can divide into two main stages:
+                    </p>
+                    <b>Chinese character segmentation and Chinese character recognition.</b>
+                    <p>
+                        After accurate segmentation results finished, Chinese character recognition can achieve high accuracy, so our study only focus on Chinese character segmentation in historical documents.
                     </p>                
+            
+                  <img src="../image/model-method.png">
+                    </div>
             </div>
-            <div class="col-6 start-50">
-                <img src="../image/output01.png">
-            </div>
-            <div  class="col-6 start-100">
-                <img src="../image/output02.png">
-            </div>
-            <div class="col-12 start-100 mt-5">
-                <p class="mb-30 fw-bolder" id="">
-                The experiments and the results have shown that our model is able to achieve the best speed-accuracy compared to the others.
-                </p>
-            </div>                
+            <div class="col-2"></div>             
         </div>
         </div>
     </div>

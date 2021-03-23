@@ -543,3 +543,28 @@ margin-top: 160px;
     width: 400px;
 }
 
+#model_head{
+    color: #fff;
+    font-size: 48PX;
+    text-decoration: none;
+    margin: 12px;
+    text-align: left;
+    -webkit-box-pack: start;
+    -webkit-box-align: start;
+}
+
+
+#model_head::before{
+
+    content: "→ ";   
+}
+
+#model_article{
+    font-size: 24px;
+    margin: 36px;
+}
+
+#topic{
+    text-align: center;
+    margin: 36px;
+}
