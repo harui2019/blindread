@@ -48,7 +48,7 @@
 .material-icons.scroll-down {
     position: relative;
 
-    top: 10vh;
+    top: 0px;
     color: transparent;
     width: 100%;
     font-size: 15vh;
@@ -61,8 +61,8 @@
     animation-direction: alternate;
     animation-name: scroll-down-sign;
 } @keyframes scroll-down-sign {
-    0%   {color: rgba(78, 82, 90, 0.85); top: 10vh;}
-    100% {color: rgba(193, 133, 31, 0.85); top: 15vh;}
+    0%   {color: rgba(78, 82, 90, 0.85); top: 0vh;}
+    100% {color: rgba(193, 133, 31, 0.85); top: 5vh;}
 }
 .material-icons.intro-arrows-1 {
     position: relative;
