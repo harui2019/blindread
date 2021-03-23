@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Result</title>
+    <!-- icon, css, font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Russo+One">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="../material-icon.css">
+    <link rel="stylesheet" href="../bg-and-img.css">
+    <link rel="stylesheet" href="../navbar.css">
+
+    <!-- javascript -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    
+</head>
+
+<body class="home-bg color-light">
+    <nav class="nav-home bgc-cover-primary color-light">
+        <div class="container">
+            <ul class="menu d-flex">
+                <!-- 首頁 -->
+                <li class="drop">
+                    <a class="active" href="index.html">HOME</a>
+                </li>
+                <!-- 面臨問題 -->
+                <li class="drop">
+                    <a href="./otherpage/home_issue.html">ISSUE</a>
+                </li>
+                <!-- 未來展望 -->
+                <li class="drop">
+                    <a href="./otherpage/home_future.html">FUTURE</a>
+                </li>
+                <!-- 上傳 -->
+                <li class="drop">
+                    <a href="./otherpage/upload.html">UPLOAD</a>
+                </li>
+                <!-- 模型介紹 -->
+                <li class="drop">
+                    <a href="./otherpage/model.html">MODEL
+                        <span class="color-light material-icons md-18">
+                            keyboard_arrow_down
+                        </span>
+                    </a>
+                    <ul class="drop-menu bgc-secondary">
+                        <li class="drop">
+                            <a href="./otherpage/model_intro.html">INTRO</a>
+                        </li>
+                        <li class="drop">
+                            <a href="./otherpage/model_function.html">FUNCTION</a>
+                        </li>
+                        <li class="drop">
+                            <a href="./otherpage/model_method.html">METHODOLOGY</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 聯繫我們 -->
+                <li class="drop">
+                    <a href="./otherpage/contact.html">CONTACT</a>
+                </li>
+                <!-- end -->
+            </ul>
+        </div>
+    </nav>
+    <nav class="navblocker bgc-primary">It's navblocker at z-index:0</nav>
+
+    <div class="container color-primary mt-60">
+        <div class="row article">
+            <div class="col-6 start-50 ">
+                <div id="result_title" class="mt-60 h-mid">Result</div>
+                <img class="h-mid" src="../image/result-read.png" alt="" id="read-image">
+            </div>
+            <div class="col-6 start-100" id="result_second">
+                <pre class="" id="counting_result">
+                    第十八際
+                    小涅槃經作證
+                    一切恩愛有離別 一切山巖有崩缺
+                    一切樹木有摧折 一切江河有枯竭
+                    一切萬物有破壞 子母恩情有離別
+                    法身常住無生死 法身常住永不滅
+                    諸形無常生滅法 諸相有滅身安樂
+                    如來亦是住人公 永斷生死無量樂
+                    髮毛爪齒牙疼苦 耳多淚涕唾苦難當
+                </pre>
+                <button class="h-mid btn btn-info btn-lg btn-block" onclick="speakGoogle()" >Read again</button>
+
+            </div>
+        </div>
+        ?
+    </div>
+    
+    <div class="footer bg-secondary color-muted">
+        <div class="container d-none jcsb">
+            <div class="footer-copyright">@copyright-NCCU DSC Group of Web</div>
+        </div>
+    </div>
+
+</body>
+<script src="./otherplugin/result.js"></script>
+
+</html>
