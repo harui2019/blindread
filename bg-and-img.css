@@ -18,7 +18,6 @@ img {
     scroll-behavior: smooth;
     
 }
-
 .home-bg-cover {
     position: absolute;
     width: 100%;
@@ -27,11 +26,7 @@ img {
 
     background: rgba(255, 255, 255, 0.0);
 }
-
-.motiva-img {
-    width: 100%;
-}
-
+.motiva-img { width: 100%;}
 
 /* template demo setting */
 /* they are not in using */
@@ -40,82 +35,30 @@ img {
     max-height: calc(100vh - 40px);
 }
 
-/* bg-set_1 */
-/* checked in template */
-
-.bg-set_1 {
-    position: fixed;
-    left: 0;
-    width: 100%;
-    max-height: 95vh;
-    height: calc(100vh - 40px);
-
-    z-index: 0;
-}
-
-#bg-image_bird_1 {
-    background-image: url("bird_1.png");
+#motiva-bg-1 {
+    background-image: url("./image/home-motiva-1.png");
+    top: 5%;
+    height: 75%;
+    width: 90%;
     
-    background-attachment: fixed;
-    background-position: 10% 18%;
-    background-size: 40%;
+    background-attachment: scroll;
+    background-position: 20% 50%;
+    background-size: 110%;
     background-repeat: no-repeat;
-    opacity: 80%;
-
+    opacity: 1;
 }
-
-#bg-image_bird_2 {
-    background-image: url("bird_2.png");
+#motiva-bg-2 {
+    background-image: url("./image/home-motiva-2.png");
+    top: 5%;
+    height: 75%;
+    width: 90%;
     
-    background-attachment: fixed;
-    background-position: 80% 85%;
-    background-size: 50%;
+    background-attachment: scroll;
+    background-position: 20% 0%;
+    background-size: 100%;
     background-repeat: no-repeat;
-    opacity: 60%;
-}
+    opacity: 1;
 
-/* bg-set_2 */
-
-#bg-image_bird_3 {
-    background-image: url("./image/bird_1.png");
-    
-    background-attachment: local;
-    background-position: -5vw -10vh;
-    background-size: 50%;
-    background-repeat: no-repeat;
-    opacity: 80%;
-
-}
-
-#bg-image_bird_4 {
-    background-image: url("./image/bird_2.png");
-    
-    background-attachment: fixed;
-    background-position: 50vw 20vh;
-    background-size: 80%;
-    background-repeat: no-repeat;
-    opacity: 60%;
-}
-
-
-#bg-bird_3 {
-    position: absolute;
-    width: 50%;
-    left: -5vw;
-    top: 0vh;
-
-    z-index: -1;
-    opacity: 80%;
-}
-
-#bg-bird_4 {
-    position: absolute;
-    width: 80%;
-    left: 50vw;
-    top: 20vh;
-
-    z-index: -2;
-    opacity: 50%;
 }
 
 /* other and widget for editting */

@@ -194,8 +194,8 @@ section {
 /* following are specialized */
 /* home page */
 .home-container {
-    /* margin-left: 10%;
-    margin-right: 10% ; */
+    margin-left: 10%;
+    margin-right: 10% ;
     height: calc((95vh));
     max-height: calc((100vh - 40px));
 }
@@ -213,7 +213,7 @@ section {
 #home-name-1 {
     position: relative;
     width: 100%;
-    margin-top: 50%;
+    margin-top: 35%;
 
     font-family: Roboto;
     font-style: normal;
@@ -238,11 +238,11 @@ section {
     font-family: Roboto;
     font-style: normal;
     font-weight: 900;
-    font-size: min(6vh, 60px);
-    line-height: min(6vh, 60px);
+    font-size: min(9vh, 90px);
+    line-height: min(9vh, 90px);
     text-align: left;
     
-    text-shadow: 0px 6px 4px rgba(78, 82, 90, 0.80);
+    text-shadow: 0px 7px 10px rgba(0, 0, 0, 0.8)
 }
 
 #home-intro-1 {
@@ -267,7 +267,7 @@ section {
     100% {opacity: 100%;}
 }
 
-#home-motiva-1 {
+/* #home-motiva-1 {
     position: relative;
     width: 100%;
     padding: 0 10% 0 10%;
@@ -280,7 +280,7 @@ section {
     line-height: min(calc(4vh), 40px);
 
     text-shadow: 0px 6px 4px rgba(78, 82, 90, 0.80);
-}
+} */
 
 #home-upload {
     position: relative;
@@ -296,9 +296,66 @@ section {
     position: relative;
     background: rgb(136, 189, 188);
     border-radius: 20px;
+
+    animation-name: home-name-showup;
+    animation-duration: 1.5s;
+} @keyframes home-name-showup {
+    0%   {opacity: 0%;}
+    100% {opacity: 100%;}
 } #home-upload a {
     text-decoration: none;
     color: #ffffff;
+}
+/* 'motiva-bg-x' write in the 'bg-and-img.css' */
+:root {
+    --home-showupbox-move: min(-45%, -30vh);
+}
+.home-motiva-set div {
+    overflow: hidden; 
+    /* this hidden is key part */
+    position: relative;
+    top: 0;
+    /* other in 'bg-and-img.css' */
+    
+}
+.home-motiva-set div .home-showupbox {
+    position: absolute;
+    height: 200%;
+    top: 0;
+    margin-top: 0;
+    animation-duration: 1s;
+    animation-name: unshowup;
+} @keyframes unshowup {
+    0%   { margin-top: var(--home-showupbox-move); }
+    100% { margin-top: 0%; }
+}
+.home-motiva-set div .home-showupbox:hover {
+    position: absolute;
+    margin-top: var(--home-showupbox-move);
+    animation-duration: 1s;
+    animation-name: showup;
+} @keyframes showup {
+    0%   { margin-top: 0%; }
+    100% { margin-top: var(--home-showupbox-move); }
+}
+.home-motiva-set div div div:first-child {
+    position: relative;
+    top: 0;
+    height: 50%;
+}
+.home-motiva-set div div div:last-child {
+    position: relative;
+    top: 0;
+
+    background: rgba(0, 0, 0, 0.7);
+    padding: 5% 5% 5% 5%;
+    height: 50%;
+    text-align: center;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    font-size: min(calc(2.4vh), 24px);
+    line-height: min(calc(3vh), 30px);
 }
 
 
@@ -442,6 +499,31 @@ section {
     display:box;
     box-pack:center;
     box-align:center;
+}
+
+.horizen-center {
+    /* make single childelt. at the center of parent*/
+    /* if has multi elt to set, use a div to package them */
+
+    /* Internet Explorer 10 */
+    display:-ms-flexbox;
+    -ms-flex-pack:center;
+    -ms-flex-align:baseline;
+
+    /* Firefox */
+    display:-moz-box;
+    -moz-box-pack:center;
+    -moz-box-align:baseline;
+
+    /* Safari, Opera, and Chrome */
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:baseline;
+
+    /* W3C */
+    display:box;
+    box-pack:center;
+    box-align:baseline;
 }
 
 .v-mid {
