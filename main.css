@@ -421,9 +421,9 @@ section {
 
 /* color control*/
 /* bg-xxxxx has been use in bootstrap */
-.bgc-primary { background-color: rgb(0, 0, 0);}
+.bgc-primary { background-color: #112D32;}
 .bgc-secondary { background-color: rgba(0, 201, 173, 0.1);}
-.bgc-cover-primary { background: rgba(255, 255, 255, 0.2)}
+.bgc-cover-primary { background: rgba(233, 227, 195, 0.3)}
 .bgc-cover-secondary { background: rgba(255, 255, 255, 0)}
 .color-primary { color: #4E525A;}
 .color-secondary { color: #27292D;}

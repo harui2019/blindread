@@ -8,7 +8,6 @@ img {
     /* DO NOT use position: absolute; */
     width: 100%;
     height: 100%;
-    background-color: rgb(0, 0, 0);
     /* background-image: url(./image/home_page.jpg); */
 
     background-position: top;
@@ -26,7 +25,7 @@ img {
     height: calc((95vh - 2px));
     max-height: calc((100vh - 40px));
 
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.0);
 }
 
 .motiva-img {
