@@ -2,10 +2,11 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Dataset</title>
+    <title>挑戰介紹</title>
     <!-- icon, css, font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Russo+One">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <link rel="icon" href="../image/white-bird-shape.png" type="image/x-icon">
@@ -27,44 +28,55 @@
     
 </head>
 
-<body class="bgc-primary color-light">
-    <nav class="bgc-cover-primary color-light">
+<body class="bgc-secondary color-light">
+    <nav class="bgc-primary">
         <div class="container">
             <ul class="menu d-flex">
                 <!-- 首頁 -->
                 <li class="drop">
-                    <a href="../index.html">HOME</a>
-                </li>
-                <!-- 上傳 -->
-                <li class="drop">
-                    <a href="./upload.html">UPLOAD</a>
-                </li>
-                <!-- 模型介紹 -->
-                <li class="drop">
-                    <a href="./model.html">MODEL
+                    <a class="" href="../index.html">HOME
                         <span class="material-icons md-18 active">
                             keyboard_arrow_down
                         </span>
                     </a>
                     <ul class="drop-menu bgc-secondary">
+                        <!-- 挑戰說明 -->
                         <li class="drop">
-                            <a class="active" href="./model_intro.html">INTRO</a>
+                            <a class="active" href="./challenge_intro.html">CHALLENGE</a>
                         </li>
+                        <!-- 棲地介紹 -->
                         <li class="drop">
-                            <a class="active" href="./model_function.html">DATASET</a>
-                        </li>
-                        <li class="drop">
-                            <a href="./model_method.html">METHODOLOGY</a>
+                            <a href="./habitat_intro.html">HABITAT</a>
                         </li>
                     </ul>
                 </li>
-                <!-- 未來展望 -->
+                <!-- 模型介紹 -->
                 <li class="drop">
-                    <a href="./home_future.html">FUTURE</a>
+                    <a href="./model_index.html">MODEL
+                        <span class="material-icons md-18">
+                            keyboard_arrow_down
+                        </span>
+                    </a>
+                    <ul class="drop-menu bgc-secondary">
+                        <li class="drop">
+                            <a href="./model_intro.html">MODEL</a>
+                        </li>
+                        <li class="drop">
+                            <a href="./function.html">FUNCTION</a>
+                        </li>
+                        <li class="drop">
+                            <a href="./method.html">METHODOLOGY</a>
+                        </li>
+                        <!-- <li><a href="https://vgg16.herokuapp.com/">前往上傳</a></li> -->
+                    </ul>
                 </li>
-                <!-- 面臨問題 -->
+                <!-- 上傳圖片 -->
                 <li class="drop">
-                    <a href="./home_issue.html">ISSUE</a>
+                    <a href="./upload.html">UPLOAD</a>
+                </li>
+                <!-- 地圖 -->
+                <li class="drop">
+                    <a href="./map.html">MAP</a>
                 </li>
                 <!-- 聯繫我們 -->
                 <li class="drop">
@@ -74,30 +86,15 @@
             </ul>
         </div>
     </nav>
-    <nav class="navblocker bgc-primary">It's navblocker at z-index:0</nav>
-    
-    <div class="container" id="model_intro">
-        <div class="row">
-            <h1 class="fw-bold" id="topic">Dataset</h1>
+    <nav class="navblocker showboxshape_3 bgc-primary">It's navblocker at z-index:0</nav>
 
-            <div class="col-2"></div>               
-            <div class="col-4">
-                <div  id="model_article">
-                <p>
-                    However, preserving historical documents is difficult due to various factors. 
-                    Ex: temperature, Paper material …
-                </p>
-                <b>
-                How to achieve automation has always been the focus of attention.
-                </b>
-                </div>
-            </div>
-        <div class="col-4">
-            <img style="width: 100%; margin-top: 16px;" src="../image/model-data.png">
-        </div>               
-            <div class="col-2"></div>               
-        </div>
+    <!-- the nests -->
+    <div class="challenge-nest">
+        <a href="./habitat_intro.html" id="nest-habitat">HABITAT</a>
+        <a href="./model_index.html" id="nest-model">MODEL</a>
     </div>
+
+    
     <div class="footer bg-secondary color-muted">
         <div class="container d-none jcsb">
             <div class="footer-copyright">@copyright-NCCU DSC Group of Web</div>

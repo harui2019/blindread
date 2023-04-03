@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <link rel="icon" href="../image/white-bird-shape.png" type="image/x-icon">
 
     <link rel="stylesheet" href="../main.css">
     <link rel="stylesheet" href="../material-icon.css">
@@ -25,55 +24,44 @@
     
 </head>
 
-<body class="bgc-secondary color-light">
-    <nav class="bgc-primary">
+<body class="home-bg bgc-primary color-light">
+    <nav class="bgc-cover-primary color-light">
         <div class="container">
             <ul class="menu d-flex">
                 <!-- 首頁 -->
                 <li class="drop">
-                    <a href="../index.html">HOME
-                        <span class="active material-icons md-18">
-                            keyboard_arrow_down
-                        </span>
-                    </a>
-                    <ul class="drop-menu bgc-secondary">
-                        <!-- 挑戰說明 -->
-                        <li class="drop">
-                            <a href="./challenge_intro.html">CHALLENGE</a>
-                        </li>
-                        <!-- 棲地介紹 -->
-                        <li class="drop">
-                            <a href="./habitat_intro.html">HABITAT</a>
-                        </li>
-                    </ul>
+                    <a href="../index.html">HOME</a>
                 </li>
-                <!-- 模型介紹 -->
-                <li class="drop">
-                    <a href="./model_index.html">MODEL
-                        <span class="material-icons md-18">
-                            keyboard_arrow_down
-                        </span>
-                    </a>
-                    <ul class="drop-menu bgc-secondary">
-                        <li class="drop">
-                            <a href="./model.html">MODEL</a>
-                        </li>
-                        <li class="drop">
-                            <a href="./function.html">FUNCTION</a>
-                        </li>
-                        <li class="drop">
-                            <a href="./method.html">METHODOLOGY</a>
-                        </li>
-                        <!-- <li><a href="https://vgg16.herokuapp.com/">前往上傳</a></li> -->
-                    </ul>
-                </li>
-                <!-- 上傳圖片 -->
+                <!-- 上傳 -->
                 <li class="drop">
                     <a href="./upload.html">UPLOAD</a>
                 </li>
-                <!-- 地圖 -->
+                <!-- 模型介紹 -->
                 <li class="drop">
-                    <a href="./map.html">MAP</a>
+                    <a href="./model_intro.html">MODEL
+                        <span class="material-icons md-18 active">
+                            keyboard_arrow_down
+                        </span>
+                    </a>
+                    <ul class="drop-menu bgc-secondary">
+                        <li class="drop">
+                            <a class="active" href="./model_intro.html">INTRO</a>
+                        </li>
+                        <li class="drop">
+                            <a href="./model_function.html">DATASET</a>
+                        </li>
+                        <li class="drop">
+                            <a href="./model_method.html">METHODOLOGY</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 未來展望 -->
+                <li class="drop">
+                    <a href="./home_future.html">FUTURE</a>
+                </li>
+                <!-- 面臨問題 -->
+                <li class="drop">
+                    <a href="./home_issue.html">ISSUE</a>
                 </li>
                 <!-- 聯繫我們 -->
                 <li class="drop">
@@ -85,18 +73,29 @@
     </nav>
     <nav class="navblocker bgc-primary">It's navblocker at z-index:0</nav>
     
-
     <div class="container color-primary mt-60">
         <div class="row article">
             <div class="col-6 start-50 ">
                 <div id="result_title" class="mt-60 h-mid">Result</div>
-                <img class="h-mid" src="../Herd-master/count_result.png" alt="">
+                <img class="h-mid" src="../image/result-read.png" alt="" id="read-image">
             </div>
             <div class="col-6 start-100" id="result_second">
-                <h class="mt-30  h-mid txt-center" id="counting_result">Counting Result</h>
-                <h class="mb-30  h-mid txt-center" id="counting_result">10</h>
+                <pre class="" id="counting_result">
+                    第十八際
+                    小涅槃經作證
+                    一切恩愛有離別 一切山巖有崩缺
+                    一切樹木有摧折 一切江河有枯竭
+                    一切萬物有破壞 子母恩情有離別
+                    法身常住無生死 法身常住永不滅
+                    諸形無常生滅法 諸相有滅身安樂
+                    如來亦是住人公 永斷生死無量樂
+                    髮毛爪齒牙疼苦 耳多淚涕唾苦難當
+                </pre>
+                <button class="h-mid btn btn-info btn-lg btn-block" onclick="speakGoogle()" >Read again</button>
+
             </div>
         </div>
+        ?
     </div>
     
     <div class="footer bg-secondary color-muted">
@@ -106,7 +105,6 @@
     </div>
 
 </body>
-<!-- <script src="../bird_typehead.js"></script>
-<script src="../map_select.js"></script> -->
+<script src="./otherplugin/result.js"></script>
 
 </html>
